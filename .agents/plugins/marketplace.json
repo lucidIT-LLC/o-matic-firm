@@ -1,0 +1,14 @@
+{
+  "name": "o-matic-firm",
+  "description": "o-MATIC Firm \u2014 expertise you retain. Smith (critical analyst), Tim (tool optimizer), Rimmer (evidence-first evaluator). Engaged for a problem, not employed to run the place.",
+  "plugins": [
+    {
+      "name": "firm",
+      "source": {
+        "type": "local",
+        "path": "./firm"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

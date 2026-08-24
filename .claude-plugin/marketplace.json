@@ -1,0 +1,42 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "o-matic-firm",
+  "owner": {
+    "name": "lucidIT-LLC",
+    "email": "lucideye@icloud.com"
+  },
+  "metadata": {
+    "description": "o-MATIC Firm \u2014 expertise you retain. Smith (critical analyst), Tim (tool optimizer), Rimmer (evidence-first evaluator). Engaged for a problem, not employed to run the place.",
+    "version": "2026-08-24"
+  },
+  "plugins": [
+    {
+      "name": "firm",
+      "displayName": "o-MATIC Firm",
+      "source": "./firm",
+      "version": "1.0.0",
+      "description": "Retained expertise for an O-Matic factory, as skills only. Smith stress-tests plans, architecture and factory configuration adversarially. Tim audits MCP connectors and scopes which tools a project actually needs. Rimmer collects, sterilises, scores and packages eval evidence. Ships no MCP server.",
+      "author": {
+        "name": "James Walker",
+        "url": "https://o-matic.ai"
+      },
+      "homepage": "https://o-matic.ai",
+      "license": "MIT",
+      "category": "Productivity",
+      "keywords": [
+        "review",
+        "critique",
+        "evaluation",
+        "tooling",
+        "audit",
+        "skill-only"
+      ],
+      "metadata": {
+        "compatibilityTier": "prompt-only-behaviour-only; MCP-host-full-operation when the host provides the O-Matic Server surface",
+        "shipsMcpServer": false,
+        "requiresForFullOperation": "O-Matic Server MCP surface, configured by the host",
+        "declaredUnder": "known_rules #284 (compatibility gate, halt)"
+      }
+    }
+  ]
+}
