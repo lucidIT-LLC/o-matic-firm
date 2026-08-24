@@ -192,7 +192,7 @@ The O-Matic Server provides a three-tier memory model: Tier 1 semantic index (en
 4. GIN FTS indexes on pre-computed `tsv tsvector` columns (NOT inline `to_tsvector()`)
 5. Three triggers per Tier-1 source: INSERT seed + UPDATE stale-mark + DELETE cascade
 6. `fn_search_semantic` and `fn_search_documents` using RRF hybrid retrieval (k=60)
-7. **No OpenAI key.** Embedding is on-device via Conductor — `nomic-embed-text-v1.5`, 768-d, Core ML. `factory_config` names the provider and endpoint; it holds **no vendor credential**. Values beginning `env:` are indirections to the Keychain, never literal secrets.
+7. **No OpenAI key.** Embedding runs on the O-Matic Server host — `nomic-embed-text-v1.5`, 768-d. `factory_config` names the provider and endpoint; it holds **no vendor credential**. Values beginning `env:` are indirections to the Keychain, never literal secrets.
 8. `v_embedding_health` and `v_tier1_coverage` health views
 9. `v_startup_summary` surfaces embedding health and decommissioned-term counts at startup
 
@@ -223,7 +223,7 @@ The O-Matic Server provides a three-tier memory model: Tier 1 semantic index (en
 - `decommissioned_terms` audit table + three domain-specific views must exist and return 0 hits at healthy state
 
 **Credentials:**
-- `factory_config` MUST hold **no vendor credential**. Conductor owns custody in the macOS Keychain and grants it per paired app; the plugin holds none.
+- `factory_config` MUST hold **no vendor credential**. The O-Matic Server owns custody and grants per-client access by issued token; the plugin holds none.
 - A value matching `^sk-[A-Za-z0-9_-]{16,}`, `api.openai.com`, or `text-embedding-3-(small|large)` is a **finding**, not a control.
 - Lingering `qdrant_*` keys = incomplete decommission.
 
@@ -363,8 +363,8 @@ under any other label (task #276; FA-2026-05 §4.1, "search for values, not just
 key names").
 
 That `env:CONDUCTOR_TOKEN` value is not a typo and has not been corrected here:
-it is what the reference factory still holds, verified 2026-08-24. Conductor was
-retired 2026-08-23 (decision #355), so the value is now a pointer into a retired
+it is what the reference factory still holds, verified 2026-08-24. That retired
+broker was shut down 2026-08-23 (decision #355), so the value is a pointer into a retired
 system's environment — which is the lesson twice over. Read what is there, report
 it, and do not "fix" a config value because its name looks obsolete.
 
@@ -499,8 +499,9 @@ meant `insufficient_privilege`. Both have cost this estate weeks.
 Do not reinstate a `schema_contract` check here — **the mechanism was never
 built.** `system-5-built-vs-planned.md` records that no `schema_contract` table
 exists anywhere in the database and lists writing one as an outstanding DDL
-deliverable. The plan's enforcement language — that Conductor and the plugin read
-it at connect/startup, and that the conformance suite tests three states — is
+deliverable. The plan's enforcement language — historical, naming the retired
+broker and the plugin as readers at connect/startup, with a conformance suite
+testing three states — is
 plan text describing intent, not a record of shipped behaviour. Measured
 2026-08-14: absent from o-matic in every form; present in Commons only as a row
 hand-written on 2026-08-09. One hand-made row in one database is not a mechanism,
