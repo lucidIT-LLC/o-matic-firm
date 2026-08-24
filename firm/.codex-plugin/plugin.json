@@ -1,6 +1,6 @@
 {
   "name": "firm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Retained expertise for an O-Matic factory, as skills only \u2014 Smith (adversarial review), Tim (tool optimisation), Rimmer (evidence-first evaluation). Ships NO MCP server by design. Database access is the O-Matic Server's own MCP surface, configured by the host.",
   "author": {
     "name": "James Walker",
