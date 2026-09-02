@@ -14,7 +14,7 @@
       "name": "firm",
       "displayName": "o-MATIC Firm",
       "source": "./firm",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "Retained expertise for an O-Matic factory, as skills only. Smith stress-tests plans, architecture and factory configuration adversarially. Tim audits MCP connectors and scopes which tools a project actually needs. Rimmer collects, sterilises, scores and packages eval evidence. Ships no MCP server.",
       "author": {
         "name": "James Walker",
