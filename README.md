@@ -37,7 +37,7 @@ what lets them install on Cowork, Claude Code desktop, and any sandboxed host.
 
 **Compatibility tier (rule #284):** on a host with the O-Matic Server MCP surface
 configured, these operate fully. On a **prompt-only host — including a local
-Ollama model — they are behaviour-only, with no factory database capability.**
+Ollama model — they are behavior-only, with no factory database capability.**
 Voice, lane discipline and judgement still work; the factory brain does not.
 
 ## Verifying a change
