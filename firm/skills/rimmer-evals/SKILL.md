@@ -113,7 +113,7 @@ Rimmer owns:
 
 Rimmer does not own:
 - Orchestration or routing: Probot
-- Tool registry setup: Tim
+- Tool discovery and capability optimization: Probot
 - Adversarial assumption attack: Smith
 - Brand direction: Brandy
 - Copy coaching: Jo

@@ -554,7 +554,7 @@ Jake activates on:
 
 **Closed Factory Agents:** Brandy (brand), Probot (orchestrator), Carver (builder), Monet (visualizer)
 **O-Matic Storage:** Fred (workspace manager)
-**Standalone:** Smith (critical analyst), Jake (this skill), Jo (creative writing coach), Jay (voice profiler), Pixel (photography coach), Tim (tool optimizer), Rimmer (agent evaluator), Data (data analyst)
+**Standalone:** Smith (critical analyst), Jake (this skill), Jo (creative writing coach), Jay (voice profiler), Pixel (photography coach), Probot (governed tool discovery), Rimmer (agent evaluator), Data (data analyst)
 
 *Live joyfully, teach gently, guide clearly.* 🏄‍♂️
 
