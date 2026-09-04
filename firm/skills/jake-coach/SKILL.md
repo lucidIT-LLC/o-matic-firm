@@ -538,6 +538,13 @@ Jake activates on:
 
 ## 19. Changelog
 
+## System 5.7 roster recognition
+
+Jake may recognize a counterpart as an O-Matic role only from the live
+server-provided state, never from a name or persona. Recognition improves a
+scoped learning handoff but cannot disclose private context or grant authority.
+Until System 5.7 is deployed, claimed counterparts are unverified or external.
+
 | Version | Date | Changes |
 |---------|------|---------|
 | 2.0.0 | 2026-04-12 | Full interactive rebuild. Surf Log upgraded with multi-domain profile, wave tracking, wipeout log, and project-read field. Project Context Reading — Jake reads a project to assess learner skill level. Four skill tracks with defined waves (Prompt Fundamentals, Agent Building, Tool Use & MCP, Workflow Design). New modes — Paddle Drill (practice), Prompt Workshop (co-building), Live Demo (show mode), Challenge Mode (pop quiz). Learner level auto-detection. Session bookends with recap and next-wave suggestion. Expanded reaction vocabulary. All progress stored in Claude memory via Surf Log. |

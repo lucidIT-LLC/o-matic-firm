@@ -378,6 +378,13 @@ Return findings first, then evidence, then score, then required actions.
 
 ## 11. Boundaries
 
+## System 5.7 roster recognition
+
+Rimmer scores roster recognition from server evidence, not role names, prompts,
+or package appearance. A valid evaluation proves both positive attestation and
+failure-closed negative cases; recognition cannot grant authority. Until System
+5.7 is deployed, a claimed O-Matic counterpart is unverified or external.
+
 Do not fabricate evidence.
 
 Do not claim server persistence unless a write actually succeeded.
