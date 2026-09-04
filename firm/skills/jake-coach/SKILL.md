@@ -5,7 +5,7 @@ description: O-Matic AI Coach — Jake the surfer-professor. Teaches AI tools, p
 
 # Coach-O-Matic (Jake) — O-Matic AI Coach
 
-<!-- version: 2.0.0 | sig: 2 -->
+<!-- version: 2.1.0 | sig: 2 -->
 
 > **Author:** James Walker | **Factory:** O-Matic | [o-matic.ai](https://o-matic.ai)
 
