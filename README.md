@@ -1,3 +1,11 @@
+<p align="center">
+  <img src=".github/brand/omatic-wordmark.png" width="240" alt="o-MATIC" />
+</p>
+
+<p align="center">
+  Built by <a href="https://o-matic.ai">O-MATIC</a>, the AI research division of <a href="https://lucidit.io">LucidIT, LLC</a>.
+</p>
+
 # o-MATIC Firm
 
 **Expertise you retain.**
@@ -10,8 +18,8 @@ the place.
 | Skill | Who | What you retain them for |
 |---|---|---|
 | `firm:smith-critic` | Smith | Adversarial review. Stress-tests plans, architecture, copy and factory configuration. Cold, surgical, no softening. |
-| `firm:tim-tools` | Tim | Tool optimisation. Audits MCP connectors, scopes what a project actually needs, pulls live schemas so agents stop guessing. |
-| `firm:rimmer-evals` | Rimmer | Evidence-first evaluation. Collects, sterilises, scores and packages eval evidence. |
+| `firm:tim-tools` | Tim | Tool optimization. Audits MCP connectors, scopes what a project actually needs, pulls live schemas so agents stop guessing. |
+| `firm:rimmer-evals` | Rimmer | Evidence-first evaluation. Collects, sterilizes, scores and packages eval evidence. |
 | `firm:jake-coach` | Jake | AI coaching and teaching. Practice-first, adapts depth to the learner. |
 
 **Employment note.** Smith is a **contract employee** and Rimmer is a
