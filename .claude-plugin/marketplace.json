@@ -6,7 +6,7 @@
     "email": "lucideye@icloud.com"
   },
   "metadata": {
-    "description": "o-MATIC Firm \u2014 expertise you retain. Smith (critical analyst), Tim (tool optimizer), Rimmer (evidence-first evaluator). Engaged for a problem, not employed to run the place.",
+    "description": "o-MATIC Firm \u2014 expertise you retain. Smith (critical analyst), Rimmer (evidence-first evaluator). Engaged for a problem, not employed to run the place.",
     "version": "2026-08-24"
   },
   "plugins": [
@@ -15,7 +15,7 @@
       "displayName": "o-MATIC Firm",
       "source": "./firm",
       "version": "1.0.3",
-      "description": "Retained expertise for an O-Matic factory, as skills only. Smith stress-tests plans, architecture and factory configuration adversarially. Tim audits MCP connectors and scopes which tools a project actually needs. Rimmer collects, sterilises, scores and packages eval evidence. Ships no MCP server.",
+      "description": "Retained expertise for an O-Matic factory, as skills only. Smith stress-tests plans, architecture and factory configuration adversarially. Rimmer collects, sterilizes, scores and packages eval evidence. Ships no MCP server.",
       "author": {
         "name": "James Walker",
         "url": "https://o-matic.ai"

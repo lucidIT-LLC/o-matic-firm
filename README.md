@@ -18,7 +18,6 @@ the place.
 | Skill | Who | What you retain them for |
 |---|---|---|
 | `firm:smith-critic` | Smith | Adversarial review. Stress-tests plans, architecture, copy and factory configuration. Cold, surgical, no softening. |
-| `firm:tim-tools` | Tim | Tool optimization. Audits MCP connectors, scopes what a project actually needs, pulls live schemas so agents stop guessing. |
 | `firm:rimmer-evals` | Rimmer | Evidence-first evaluation. Collects, sterilizes, scores and packages eval evidence. |
 | `firm:jake-coach` | Jake | AI coaching and teaching. Practice-first, adapts depth to the learner. |
 
@@ -33,7 +32,7 @@ You don't go to a hardware store for a marketing manager. Each o-MATIC
 marketplace is named for the place you would really go:
 
 - **o-MATIC Agency** — staff who *run* the factory: Probot, Fred, Data
-- **o-MATIC Firm** — expertise you *retain*: Smith, Tim, Rimmer, Jake
+- **o-MATIC Firm** — expertise you *retain*: Smith, Rimmer, Jake
 - **o-MATIC Studio** — people who *design and build*: Brandy, Carver, Monet, Jo, Pixel
 - **o-MATIC Supply** — *tools, not people*: the WordPress and Elementor connectors
 
