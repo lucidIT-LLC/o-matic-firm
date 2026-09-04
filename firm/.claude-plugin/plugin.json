@@ -1,8 +1,8 @@
 {
   "name": "firm",
   "displayName": "o-MATIC Firm",
-  "version": "1.0.2",
-  "description": "Retained expertise for an O-Matic factory, as skills only \u2014 Smith (adversarial review), Tim (tool optimisation), Rimmer (evidence-first evaluation). Ships NO MCP server by design. Database access is the O-Matic Server's own MCP surface, configured by the host.",
+  "version": "1.1.0",
+  "description": "Retained expertise for an O-Matic factory — Smith (adversarial review) and Rimmer (evidence-first evaluation). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
   "author": {
     "name": "James Walker",
     "url": "https://o-matic.ai"
@@ -14,7 +14,6 @@
     "review",
     "critique",
     "evaluation",
-    "tooling",
     "audit",
     "skill-only"
   ],
