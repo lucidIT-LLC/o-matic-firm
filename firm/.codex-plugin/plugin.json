@@ -1,7 +1,7 @@
 {
   "name": "firm",
   "version": "1.2.1",
-  "description": "Retained expertise for an O-Matic factory — Smith (adversarial review) and Rimmer (evidence-first evaluation). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
+  "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review) and Rimmer (evidence-first evaluation). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
   "author": {
     "name": "James Walker",
     "url": "https://o-matic.ai"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "o-MATIC Firm",
     "shortDescription": "Retain expertise \u2014 adversarial review, tool audits, eval evidence.",
-    "longDescription": "Retained expertise for an O-Matic factory — Smith (adversarial review) and Rimmer (evidence-first evaluation). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
+    "longDescription": "Retained expertise for an o-MATIC factory — Smith (adversarial review) and Rimmer (evidence-first evaluation). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
     "developerName": "lucidIT-LLC",
     "category": "Productivity",
     "capabilities": [
