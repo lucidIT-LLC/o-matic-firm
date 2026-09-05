@@ -19,7 +19,7 @@ server, no network client, no build step, no dependencies.** A host reads the
 
 - **Never hold, enter, relay or store a credential.** Credential entry routes
   back to the operator.
-- **Reach the database only through the O-Matic Server's governed MCP surface.**
+- **Reach the database only through the o-MATIC Server's governed MCP surface.**
   Active halt-rule #288 forbids a hand-built psql or DSN connection that bypasses
   the server, and forbids deriving authority from local configuration.
 - **Treat a grant refusal as a refusal**, never as an empty result.
@@ -27,7 +27,7 @@ server, no network client, no build step, no dependencies.** A host reads the
   a Postgres `DETAIL` can quote values from the failing row.
 
 These are instructions to a model, not enforced controls. **Enforcement lives on
-the O-Matic Server**, which holds credentials, issues one token per client, and
+the o-MATIC Server**, which holds credentials, issues one token per client, and
 grants each client only named connections.
 
 ## Reporting

@@ -7,7 +7,7 @@ instruction files. It processes no data, stores nothing, transmits nothing, and
 enforces nothing.
 
 That is accuracy, not modesty. Compliance properties belong to the system that
-handles data — the **O-Matic Server** and the **O-Matic Factory** on it.
+handles data — the **o-MATIC Server** and the **o-MATIC Factory** on it.
 
 - No PHI, no PII, no customer data — and it cannot receive any.
 - No credentials, and no way to obtain one.
@@ -15,7 +15,7 @@ handles data — the **O-Matic Server** and the **O-Matic Factory** on it.
 - Installing a pack changes what a model reads. It does not change what any
   system can reach.
 
-**The trust boundary is the O-Matic Server**, not this repository.
+**The trust boundary is the o-MATIC Server**, not this repository.
 
 ## Where the real claims live, and their ceiling
 

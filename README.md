@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  Built by <a href="https://o-matic.ai">O-MATIC</a>, the AI research division of <a href="https://lucidit.io">LucidIT, LLC</a>.
+  Built by <a href="https://o-matic.ai">o-MATIC</a>, the AI research division of <a href="https://lucidit.io">lucidIT, LLC</a>.
 </p>
 
 # o-MATIC Firm
@@ -42,7 +42,7 @@ A plugin that declares an `mcpServers` block is **omitted** by hosted-marketplac
 hosts — measured on two hosts and exactly reproducible. Shipping skills alone is
 what lets them install on Cowork, Claude Code desktop, and any sandboxed host.
 
-**Compatibility tier (rule #284):** on a host with the O-Matic Server MCP surface
+**Compatibility tier (rule #284):** on a host with the o-MATIC Server MCP surface
 configured, these operate fully. On a **prompt-only host — including a local
 Ollama model — they are behavior-only, with no factory database capability.**
 Voice, lane discipline and judgement still work; the factory brain does not.
@@ -58,7 +58,7 @@ node ../verify-pack.mjs .       # no retired mechanism survives as an instructio
 ## Security and compliance
 
 See `SECURITY.md` and `COMPLIANCE.md`. This repository is text: no credentials, no
-connections, no compliance claim. The trust boundary is the O-Matic Server.
+connections, no compliance claim. The trust boundary is the o-MATIC Server.
 
 ## License
 
