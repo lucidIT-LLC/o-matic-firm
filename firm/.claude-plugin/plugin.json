@@ -4,12 +4,12 @@
   "version": "1.2.1",
   "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review) and Rimmer (evidence-first evaluation). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
   "author": {
-    "name": "James Walker",
+    "name": "LucidIT, LLC",
     "url": "https://o-matic.ai"
   },
   "homepage": "https://o-matic.ai",
   "repository": "https://github.com/lucidIT-LLC/o-matic-firm",
-  "license": "MIT",
+  "license": "BUSL-1.1",
   "keywords": [
     "review",
     "critique",
