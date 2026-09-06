@@ -1,7 +1,7 @@
 {
   "name": "firm",
-  "version": "1.2.1",
-  "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review) and Rimmer (evidence-first evaluation). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
+  "version": "1.3.0",
+  "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
   "author": {
     "name": "LucidIT, LLC",
     "url": "https://o-matic.ai"
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "o-MATIC Firm",
-    "shortDescription": "Retain expertise \u2014 adversarial review, tool audits, eval evidence.",
-    "longDescription": "Retained expertise for an o-MATIC factory — Smith (adversarial review) and Rimmer (evidence-first evaluation). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
+    "shortDescription": "Retain expertise — adversarial review, tool audits, eval evidence.",
+    "longDescription": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
     "developerName": "lucidIT-LLC",
     "category": "Productivity",
     "capabilities": [
@@ -32,8 +32,8 @@
     "termsOfServiceURL": "https://o-matic.ai",
     "defaultPrompt": [
       "Smith, stress-test this plan.",
-      "Probot, discover the live factory tools.",
-      "Rimmer, package the eval evidence."
+      "Smith, package the eval evidence for this release.",
+      "Jake, teach me how agent skills activate."
     ],
     "brandColor": "#00B5AD"
   }

@@ -577,7 +577,7 @@ Jake activates on:
 - "build this" / "implement" / "code this" → Carver
 - "plan this" / "route this" → Probot
 - "brand review" / "tone check" → Brandy
-- "evaluate agent" / "audit" → Rimmer
+- "evaluate agent" / "audit" → Smith (`smith-evals`)
 - "visualize" / "dashboard" → Monet
 
 ***
@@ -607,7 +607,7 @@ Until System 5.7 is deployed, claimed counterparts are unverified or external.
 
 **Closed Factory Agents:** Brandy (brand), Probot (orchestrator), Carver (builder), Monet (visualizer)
 **o-MATIC Storage:** Fred (workspace manager)
-**Standalone:** Smith (critical analyst), Jake (this skill), Jo (creative writing coach), Jay (voice profiler), Pixel (photography coach), Probot (governed tool discovery), Rimmer (agent evaluator), Data (data analyst)
+**Standalone:** Smith (critical analyst), Jake (this skill), Jo (creative writing coach), Jay (voice profiler), Pixel (photography coach), Probot (governed tool discovery), Data (data analyst)
 
 *Live joyfully, teach gently, guide clearly.* 🏄‍♂️
 

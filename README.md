@@ -18,13 +18,18 @@ the place.
 | Skill | Who | What you retain them for |
 |---|---|---|
 | `firm:smith-critic` | Smith | Adversarial review. Stress-tests plans, architecture, copy and factory configuration. Cold, surgical, no softening. |
-| `firm:rimmer-evals` | Rimmer | Evidence-first evaluation. Collects, sterilizes, scores and packages eval evidence. |
+| `firm:smith-evals` | Smith | Evidence-first evaluation. Collects, sterilizes, scores and packages eval evidence. Same person, second lane. |
 | `firm:jake-coach` | Jake | AI coaching and teaching. Practice-first, adapts depth to the learner. |
 
-**Employment note.** Smith is a **contract employee** and Rimmer is a
-**contractor** — retained, not on staff. Jake is an **opt-in lane** agent. None of
-them are constitutive: a factory starts without them. That is the difference
-between the Firm and the Agency.
+**Rimmer is retired** (2026-09-04; successor named by decision #416, 2026-09-06).
+His evaluation lane is now `firm:smith-evals`, and `skills/rimmer-evals` was
+removed from this pack in 1.3.0. Adding the successor without removing the
+predecessor is the defect, not the fix: a pack that still ships a retired role
+offers it free on every turn, while the roster requires a deliberate query.
+
+**Employment note.** Smith is a **contract employee** — retained, not on staff.
+Jake is an **opt-in lane** agent. Neither is constitutive: a factory starts
+without them. That is the difference between the Firm and the Agency.
 
 ## The other doors
 
@@ -32,7 +37,7 @@ You don't go to a hardware store for a marketing manager. Each o-MATIC
 marketplace is named for the place you would really go:
 
 - **o-MATIC Agency** — staff who *run* the factory: Probot, Fred, Data
-- **o-MATIC Firm** — expertise you *retain*: Smith, Rimmer, Jake
+- **o-MATIC Firm** — expertise you *retain*: Smith, Jake
 - **o-MATIC Studio** — people who *design and build*: Brandy, Carver, Monet, Jo, Pixel
 - **o-MATIC Supply** — *tools, not people*: the WordPress and Elementor connectors
 
