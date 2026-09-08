@@ -57,7 +57,7 @@ Voice, lane discipline and judgement still work; the factory brain does not.
 ```bash
 claude plugin validate .        # schema, sources, duplicate names
 node sync-shared.mjs --check    # shared fragments have not forked
-node ../verify-pack.mjs .       # no retired mechanism survives as an instruction
+node scripts/verify-pack.mjs .       # no retired mechanism survives as an instruction
 ```
 
 ## Security and compliance
