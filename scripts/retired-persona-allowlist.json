@@ -1,0 +1,18 @@
+{
+  "_comment": [
+    "Every retired persona name is fine to WRITE about (to forbid it, explain the",
+    "retirement, or point at its replacement) but must never appear as a skill's",
+    "own identity or as a live instruction/path/reference. Task #777/#800: the",
+    "packs that ship persona-named skills had no gate for this, and a rename is",
+    "otherwise only caught by the operator. List each retired name here with its",
+    "replacement and reason."
+  ],
+  "retired": [
+    {
+      "name": "rimmer",
+      "replaced_by": "smith",
+      "decision": "decision #416",
+      "reason": "Operator ruling, session #216: Rimmer retired 2026-09-04, Smith is the successor evals/critic role. Firm 1.2.1 briefly kept shipping him and was corrected; skills/smith-critic and skills/smith-evals are the live routes."
+    }
+  ]
+}
