@@ -14,6 +14,7 @@ description: Smith's evidence-first evaluation lane. Collect, sterilize, score a
 # Smith — Evaluation Lane
 
 <!-- version: 1.0.0 | author: James Walker | pack: o-MATIC Firm -->
+<!-- identity sourced from o-MATIC persona gold record (tenant omatic). identity_signature: e022a10993e4ee1b5d035da8db962e5d -->
 
 **This is Smith, not a second persona.** Load `smith-critic` for the voice, the
 Operator Distress Override, the knowledge boundary, and the platform behavior;

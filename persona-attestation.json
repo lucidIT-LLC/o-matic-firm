@@ -1,0 +1,41 @@
+{
+ "pack": "o-matic-firm",
+ "tenant": "omatic",
+ "source": "public.v_persona_version_gate + factory.persona_build on o-matic (tenant omatic), exported 2026-09-28 after the operator approved publication (task #725)",
+ "generated_at": "2026-09-28 08:26:08.72504-04",
+ "personas": [
+  {
+   "skill": "jake-coach",
+   "agent_name": "jake",
+   "version": 1,
+   "review_status": "published",
+   "identity_signature": true,
+   "source_skill_version": "jake-coach 2.1.0 (firm 1.4.0)",
+   "character_bible": 1,
+   "dimensions": 8,
+   "builds": 1
+  },
+  {
+   "skill": "smith-critic",
+   "agent_name": "smith",
+   "version": 1,
+   "review_status": "published",
+   "identity_signature": true,
+   "source_skill_version": "7.1.2",
+   "character_bible": 1,
+   "dimensions": 3,
+   "builds": 3
+  },
+  {
+   "skill": "smith-evals",
+   "agent_name": "smith",
+   "version": 1,
+   "review_status": "published",
+   "identity_signature": true,
+   "source_skill_version": "7.1.2",
+   "character_bible": 1,
+   "dimensions": 3,
+   "builds": 3
+  }
+ ]
+}
