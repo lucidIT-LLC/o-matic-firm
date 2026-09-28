@@ -1,5 +1,43 @@
 # o-MATIC Firm — Changelog
 
+## 1.4.2 — 2026-09-28
+
+**One root cause, fixed once (tasks #963, #983):** host artifacts were deployed
+by hand on one Mac instead of being derived from the pack, so they could not be
+restored, shipped to the second Mac, or kept current. Now the pack delivers them.
+
+- **Role adapters deploy themselves.** `hooks/hooks.json` runs
+  `scripts/verify-adapter-paths.mjs --hook` on SessionStart: it installs this
+  pack's Claude Code agent files into `~/.claude/agents/` when missing, updates
+  one that is still exactly what was last deployed, and reports (never
+  overwrites) a hand-edited copy. `--deploy` adopts legacy copies, backing them
+  up under `~/.claude/state/adapter-backups/` (outside the agents directory,
+  which Claude Code scans recursively).
+- **No versioned path survives.** Agent templates preload their skills through
+  frontmatter `skills:` and reach ROLE-CORE / contracts relative to the preloaded
+  skill's base directory. A versioned plugin-cache path in any deployed adapter
+  now FAILS on sight, whatever version it names. Fixtures:
+  `scripts/verify-adapter-paths.test.mjs` (11 cases, proven able to fail).
+- **CI can pass (task #1002).** The Spirit Gate step needed a token for, and a
+  route into, a tailnet-only server; it is now the local pre-release step and is
+  env-driven with no estate default URL or tenant. CI instead runs
+  `scripts/verify-identity-attestation.mjs`: every shipped identity_signature
+  must equal the committed gold-record export (`persona-attestation.json`,
+  schema 2, from `scripts/persona-attest-export.sql`). Offline, deterministic,
+  proven to fail on a planted mismatch.
+- **Checks that fail on the class (Smith #1013 RC-2, F9, F11, F12).**
+  verify-pack 2.0.0 adds: retired KB cited as current (list exported from
+  Commons `kb.documents.status` into `scripts/retired-kb.json`), a connection
+  name written as a literal, a private tailnet address, and a version-pinned
+  cache path. CI now also runs check-paths, the Copilot payload `--check`, the
+  adapter fixtures and any hook fixture suite. One canonical copy of all pack
+  tooling lives in o-matic-studio and is synced by `scripts/sync-pack-tooling.mjs`
+  (`--check` fails on drift); sync-copilot-payload reads a per-pack
+  `adapters/copilot/payload.json` so one script serves every pack.
+- **Removed:** `sync-shared.mjs` and `shared/system-5-detection.md` — zero
+  consumers; the fragment shipped in three repos and was loaded by nothing
+  (Smith #1013 F10). History keeps it.
+
 ## 1.3.0 — 2026-09-06
 
 **Rimmer's retirement, completed.**

@@ -1,0 +1,15 @@
+{
+ "_comment": "Input to scripts/sync-copilot-payload.mjs: which pack files are vendored into adapters/copilot/.github/omatic/ and the rewrites applied to each copy.",
+ "files": [
+  {
+   "source": "adapters/ROLE-CORE.md",
+   "name": "ROLE-CORE.md",
+   "rewrites": [
+    [
+     "`../skills/`",
+     "`firm/skills/` in the Firm pack"
+    ]
+   ]
+  }
+ ]
+}
