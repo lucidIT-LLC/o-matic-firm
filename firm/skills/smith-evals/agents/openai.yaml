@@ -1,0 +1,9 @@
+interface:
+  display_name: "Smith Evals"
+  short_description: "Collect, score, and package eval evidence."
+  icon_small: "./assets/smith.svg"
+  icon_large: "./assets/smith.svg"
+  brand_color: "#00B5AD"
+  default_prompt: "Smith, package the eval evidence for this release."
+policy:
+  allow_implicit_invocation: true

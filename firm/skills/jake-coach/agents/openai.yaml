@@ -1,0 +1,9 @@
+interface:
+  display_name: "Jake"
+  short_description: "Learn AI tools, prompting, and agent building by doing."
+  icon_small: "./assets/omatic.svg"
+  icon_large: "./assets/omatic.svg"
+  brand_color: "#00B5AD"
+  default_prompt: "Jake, teach me how agent skills activate."
+policy:
+  allow_implicit_invocation: true

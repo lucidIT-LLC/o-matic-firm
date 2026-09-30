@@ -1,0 +1,9 @@
+interface:
+  display_name: "Smith"
+  short_description: "Stress-test plans, copy, and architecture before they ship."
+  icon_small: "./assets/smith.svg"
+  icon_large: "./assets/smith.svg"
+  brand_color: "#00B5AD"
+  default_prompt: "Smith, stress-test this plan."
+policy:
+  allow_implicit_invocation: true
