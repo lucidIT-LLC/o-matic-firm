@@ -1,5 +1,14 @@
 # o-MATIC Firm — Changelog
 
+## 1.4.5 — 2026-09-30
+
+Every role on every host, built to each vendor's own documentation (task #1024).
+
+- Claude Code agents now ship natively in `firm/agents/` (read by Grok Build as well). The SessionStart hook that copied agent files into `~/.claude/agents` is retired.
+- Generated per role by `scripts/build-host-adapters.mjs` from the gold-record export: Codex custom agents (`.toml`), a Gemini CLI extension at the repository root, GitHub Copilot custom agents, Microsoft 365 Copilot declarative agents, ChatGPT GPT instructions with setup, and Grok custom-agent instructions. Vendor limits are enforced at build time.
+- Nothing shipped names or looks for a private server: `check-no-private-servers.mjs` scans every text file, and a planted private name fails it.
+- L2 is not claimed anywhere yet: it waits for the role conformance eval to pass live on each host.
+
 ## 1.4.2 — 2026-09-28
 
 **One root cause, fixed once (tasks #963, #983):** host artifacts were deployed

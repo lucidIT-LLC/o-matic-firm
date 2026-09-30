@@ -14,7 +14,7 @@
       "name": "firm",
       "displayName": "o-MATIC Firm",
       "source": "./firm",
-      "version": "1.4.4",
+      "version": "1.4.5",
       "description": "Retained expertise for an o-MATIC factory, as skills only. Smith stress-tests plans, architecture and factory configuration adversarially, and owns the evidence-first evaluation lane (decision #416). Jake coaches. Ships no MCP server.",
       "author": {
         "name": "James Walker",
