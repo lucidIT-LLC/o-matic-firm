@@ -1,10 +1,10 @@
 {
   "name": "firm",
   "displayName": "o-MATIC Firm",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
   "author": {
-    "name": "LucidIT, LLC",
+    "name": "o-MATIC AI Research Lab",
     "url": "https://o-matic.ai"
   },
   "homepage": "https://o-matic.ai",
