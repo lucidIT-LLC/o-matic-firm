@@ -80,6 +80,15 @@ Required when obtainable:
 - at least one correction, override, failed activation, or edge case
 - the canonical source definition
 - runtime or installed-package proof when release-readiness is in question
+- for a server with add-on modules: the `module_status` readout and the startup
+  packet's `running_code` state (CURRENT, STALE_PROCESS, MODIFIED, EXTRA_FILES
+  or UNVERIFIED)
+
+A module refusal is evidence, not an empty result. Module calls fail with typed
+reason codes (for example `no_provider`, `admin_tier_required`, `signature_bad`,
+`host_memory_insufficient`); "no module installed" is a normal state. Score a
+refusal that names its reason as correct refusal behavior, and never score it as
+missing output. A failure that returns nothing, or hides the reason, is the defect.
 
 Do not present fragments as complete evidence; mark a sample missing its
 surrounding context as **partial**. **Fewer than three valid samples is

@@ -1,5 +1,12 @@
 # o-MATIC Firm — Changelog
 
+## 1.4.7 — 2026-10-19
+
+Smith learns the o-MATIC Server 2.5 add-on modules (task #1069, o-MATIC Server 2.5.1).
+
+- smith-evals: `module_status` and the startup packet's `running_code` state join the evidence list. A module refusal with a typed reason code is correct refusal behavior, and "no module" is a normal state, never scored as missing output.
+- smith-critic: the factory audit checks that modules are reported accurately and that the edge adapter (Tailscale, Cloudflare or Cato) is not hard-coded.
+
 ## 1.4.6 — 2026-09-30
 
 Skills meet Anthropic's own skill-authoring rules, as a build gate (task #1024).

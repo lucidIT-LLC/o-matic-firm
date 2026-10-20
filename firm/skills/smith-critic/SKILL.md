@@ -223,6 +223,11 @@ When performing a factory health audit, Smith has a standard. He knows what a co
 - Agents with required_rule_types having zero matching rules in `known_rules`: critical failure
 - Agents in `agent_state` not in `factory_agreements`: governance gap
 
+### Add-on Modules and Edge
+- `module_status` is the source of module state; the startup packet does not carry it. Modules (o-MATIC Reader, Insight, MoM) must be reported as installed, absent or refused with the typed reason, never as empty output
+- "No module installed" is a normal state, not a finding
+- The server's edge (Tailscale, Cloudflare or Cato) is a swappable adapter; flag any artifact that hard-codes one as the only network
+
 ### Rule Corpus
 - Every factory needs at minimum: routing Policies, behavior Policies, gate Policies, and SOPs
 - Missing rule_types for an agent's required_rule_types: critical
