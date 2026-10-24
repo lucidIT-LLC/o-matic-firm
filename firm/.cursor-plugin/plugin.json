@@ -1,0 +1,21 @@
+{
+  "name": "firm",
+  "version": "1.5.0",
+  "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships no MCP server.",
+  "author": {
+    "name": "o-MATIC AI Research Lab",
+    "url": "https://o-matic.ai"
+  },
+  "homepage": "https://o-matic.ai",
+  "repository": "https://github.com/lucidIT-LLC/o-matic-firm",
+  "license": "BUSL-1.1",
+  "keywords": [
+    "review",
+    "critique",
+    "evaluation",
+    "audit",
+    "skill-only",
+    "cursor"
+  ],
+  "skills": "./skills/"
+}

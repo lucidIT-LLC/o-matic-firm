@@ -1,5 +1,16 @@
 # o-MATIC Firm — Changelog
 
+## 1.5.0 — 2026-10-24
+
+Cursor 4.7 becomes a first-class Firm host (method parity path), without touching Agency or Studio.
+
+- **Cursor plugin surface:** `firm/.cursor-plugin/plugin.json` points at `./skills/` and ships **no** `mcpServers` block (same marketplace rule as Claude/Codex). Root `.cursor-plugin/marketplace.json` catalogs the pack for Cursor.
+- **Cursor method cards:** `adapters/cursor/<role>.md` for Smith and Jake, plus `adapters/cursor/INSTALL.md`. Cards carry prompt substitutes for missing Claude hooks: discover tools live (never invent Claude tool names), fan-out ≤3 specialists, `startup` + `conversation_key` when MCP is present, GrokBot explicitly undefined.
+- **Host matrix:** `adapters/README.md` adds Cursor 4.7 (`design verified` until measured) and a GrokBot TODO row.
+- **Install docs:** `firm/INSTALL.md` documents the Cursor path and the Project-skills fallback.
+- **Builder:** `scripts/build-host-adapters.mjs` emits the Cursor adapters. Sibling packs are **not** sync-tooling-bumped in this release (Agency Cursor is a parallel sibling worker; Studio already shipped 1.11.0).
+- Grok paste stubs remain generated from the gold record (rebuild refreshes voice from `agent-pack.json`).
+
 ## 1.4.7 — 2026-10-19
 
 Smith learns the o-MATIC Server 2.5 add-on modules (task #1069, o-MATIC Server 2.5.1).
