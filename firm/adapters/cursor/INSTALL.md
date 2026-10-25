@@ -19,4 +19,4 @@ Measured gap on some Cursor 4.7 sessions: the marketplace cache can exist while 
 
 ## Prompt substitutes (Claude hooks are absent on Cursor)
 
-Every `adapters/cursor/<role>.md` card repeats: discover tools live, never invent Claude tool names, fan-out ≤3 specialists, `startup` + `conversation_key` when MCP is present, GrokBot undefined.
+Every `adapters/cursor/<role>.md` and `adapters/grok/<role>.md` card mandates: first-call `startup` + Project-stable `conversation_key`, believe card `state`, copy Probot's key into `kernel_*` (Probot owns plan; join via delegate/return), Decision 694 ≤3 specialists, multi-host MCP reconnect (Cursor / Codex / Claude `/mcp` / generic — never Claude-only), `omatic_guide` before unsure capability claims, GrokBot undefined.
