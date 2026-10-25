@@ -1,7 +1,7 @@
 {
   "name": "firm",
-  "version": "1.6.0",
-  "description": "Retained expertise for an o-MATIC factory \u2014 Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
+  "version": "1.6.1",
+  "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
   "author": {
     "name": "o-MATIC AI Research Lab",
     "url": "https://o-matic.ai"
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "o-MATIC Firm",
-    "shortDescription": "Retain expertise \u2014 adversarial review, tool audits, eval evidence.",
-    "longDescription": "Retained expertise for an o-MATIC factory \u2014 Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
+    "shortDescription": "Retain expertise — adversarial review, tool audits, eval evidence.",
+    "longDescription": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
     "developerName": "o-MATIC AI Research Lab",
     "category": "Productivity",
     "capabilities": [

@@ -1,5 +1,13 @@
 # o-MATIC Firm — Changelog
 
+## 1.6.1 — 2026-10-25
+
+Grok Bot / Cursor marketplace branding (display name, master logo, category). Additive Cursor fields only; Claude PreToolUse and Codex paths unchanged.
+
+- **Cursor plugin:** `firm/.cursor-plugin/plugin.json` adds `displayName`, `logo` (`assets/logo.png`), `category` (`productivity`), and `tags`.
+- **Cursor marketplace:** root `.cursor-plugin/marketplace.json` adds matching `displayName` / `logo` / `category` for the firm entry.
+- **Versions:** all host manifests + `gemini-extension.json` patch-bumped in lockstep (1.6.0 → 1.6.1). Robot art untouched.
+
 ## 1.6.0 — 2026-10-25
 
 Specialist Cursor/Grok host ritual aligned with Agency 1.8.0 (join kernel; Probot owns plan). Additive adapters only — Claude PreToolUse untouched. Agency/Studio not sync-tooling-bumped by this Firm commit.
