@@ -1,18 +1,21 @@
 {
   "name": "o-matic-firm",
   "owner": {
-    "name": "lucidIT-LLC"
+    "name": "LucidIT, LLC"
   },
   "metadata": {
-    "description": "o-MATIC Firm \u2014 expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane) and Jake (AI coach). Ships no MCP server.",
-    "version": "1.6.0"
+    "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane) and Jake (AI coach). Ships no MCP server.",
+    "version": "1.6.1"
   },
   "plugins": [
     {
       "name": "firm",
       "source": "./firm",
-      "description": "Retained expertise for an o-MATIC factory \u2014 Smith and Jake. Ships no MCP server.",
-      "version": "1.6.0"
+      "description": "Retained expertise for an o-MATIC factory — Smith and Jake. Ships no MCP server.",
+      "version": "1.6.1",
+      "displayName": "o-MATIC Firm",
+      "logo": "firm/assets/logo.png",
+      "category": "productivity"
     }
   ]
 }
