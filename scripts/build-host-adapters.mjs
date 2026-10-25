@@ -239,21 +239,35 @@ ${HEADER(a)}
 ${starters(a).map((t) => `   - ${t}`).join("\n")}
 `);
 
-  // 7. Grok custom agent.
-  put(`${pluginDir}/adapters/grok/${id}.md`, condensed(a, { knowledgeFile: null, limit: LIMITS.grok }));
+  // 7. Grok custom agent — gold-record voice + specialist host ritual (≤4k).
+  const grokRitual = `
+
+## MCP startup (when this host has o-MATIC Server)
+
+- First call: \`startup(connection=…, conversation_key=…)\` with a Project-stable key; render the card; believe \`state\` — never invent READY/DEGRADED/BLOCKED.
+- Copy Probot's \`conversation_key\` into every \`kernel_*\` call — never mint a second key. Probot owns the plan; join via \`kernel_delegate\` / \`kernel_return\` when scoped.
+- Decision 694: at most 3 specialists in flight for one operator turn; prefer the resident kernel trio before stacking overlays.
+- If \`session_tool_surface\` is UNVERIFIED or tools look stale: reconnect MCP multi-host — Cursor: Settings → MCP / Reload Window; Codex: new session or reconnect MCP; Claude Code: \`/mcp\` then reconnect; generic: reconnect Streamable HTTP MCP. Never Claude-only.
+- Call \`omatic_guide\` before claiming a factory capability when unsure.
+- Discover live tools before naming them. Never invent Claude Code tool names.
+- GrokBot is undefined — do not claim its binding or reuse a Cursor principal.
+`;
+  const grokBody = condensed(a, { knowledgeFile: null, limit: LIMITS.grok - grokRitual.length }) + grokRitual;
+  put(`${pluginDir}/adapters/grok/${id}.md`, grokBody);
 
   // 8. Cursor 4.7 host adapter — method card + prompt substitutes (no Claude hooks).
-  // Skills load via firm/.cursor-plugin; these cards are the portable method
-  // surface when the marketplace skill list is thin or for Project fallbacks.
   const cursorBody = condensed(a, { knowledgeFile: null, limit: LIMITS.copilot }) + `
 
 ## Cursor host rules (prompt substitutes for missing Claude hooks)
 
 - Prefer the installed \`${s.name}\` skill as your full role guide when the Cursor plugin loads it.
 - Discover tools live on this host before naming them. Use Cursor tools that exist here (for example Read, Write, StrReplace, Glob, Grep, Shell, Task) or MCP tool names returned by the live server. Never invent Claude Code tool names (Edit, NotebookEdit, and the like).
-- Fan-out: at most three specialists in flight for one ask; name owners and stop conditions; do not spawn unbounded parallel work.
-- If an o-MATIC Server MCP connection is configured: call \`startup\` with a stable \`conversation_key\` before factory claims; render the card's \`state\`; never invent READY, DEGRADED, or BLOCKED.
-- GrokBot is a separate, undefined product surface in this pack — do not claim a GrokBot binding or runtime from these instructions.
+- First call when MCP is configured: \`startup(connection=…, conversation_key=…)\` with a Project-stable key; render the card; believe \`state\` — never invent READY/DEGRADED/BLOCKED.
+- Copy Probot's \`conversation_key\` into every \`kernel_*\` call — never mint a second key. Probot owns the plan; join via \`kernel_delegate\` / \`kernel_return\` when scoped.
+- Decision 694: at most three specialists in flight for one ask; prefer the resident kernel trio before stacking overlays; name owners and stop conditions.
+- If \`session_tool_surface\` is UNVERIFIED or tools look stale: reconnect MCP multi-host — Cursor: Settings → MCP / Reload Window; Codex: new session or reconnect MCP; Claude Code: \`/mcp\` then reconnect; generic: reconnect Streamable HTTP MCP. Never Claude-only; do not restart the MCP service from this card.
+- Call \`omatic_guide\` before claiming a factory capability when unsure.
+- GrokBot is undefined — do not claim a GrokBot binding or reuse a Cursor principal.
 `;
   put(`${pluginDir}/adapters/cursor/${id}.md`, cursorBody);
 
@@ -334,7 +348,7 @@ Measured gap on some Cursor 4.7 sessions: the marketplace cache can exist while 
 
 ## Prompt substitutes (Claude hooks are absent on Cursor)
 
-Every \`adapters/cursor/<role>.md\` card repeats: discover tools live, never invent Claude tool names, fan-out ≤3 specialists, \`startup\` + \`conversation_key\` when MCP is present, GrokBot undefined.
+Every \`adapters/cursor/<role>.md\` and \`adapters/grok/<role>.md\` card mandates: first-call \`startup\` + Project-stable \`conversation_key\`, believe card \`state\`, copy Probot's key into \`kernel_*\` (Probot owns plan; join via delegate/return), Decision 694 ≤3 specialists, multi-host MCP reconnect (Cursor / Codex / Claude \`/mcp\` / generic — never Claude-only), \`omatic_guide\` before unsure capability claims, GrokBot undefined.
 `);
 
 // Every skill's agents/openai.yaml names icons that exist (task #1024:
