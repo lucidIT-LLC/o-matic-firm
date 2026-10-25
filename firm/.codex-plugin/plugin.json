@@ -1,6 +1,6 @@
 {
   "name": "firm",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
   "author": {
     "name": "LucidIT, LLC",
@@ -19,7 +19,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "o-MATIC Firm",
-    "shortDescription": "Retain expertise — adversarial review, tool audits, eval evidence.",
+    "shortDescription": "Retain expertise — adversarial review, eval evidence, and practice-first AI coaching.",
     "longDescription": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
     "developerName": "LucidIT, LLC",
     "category": "Productivity",
@@ -33,7 +33,9 @@
     "defaultPrompt": [
       "Smith, stress-test this plan.",
       "Smith, package the eval evidence for this release.",
-      "Jake, teach me how agent skills activate."
+      "Jake, teach me something about AI.",
+      "Jake, build a prompt with me.",
+      "Jake, quiz me — I'm ready."
     ],
     "brandColor": "#00B5AD",
     "logo": "./assets/logo.png",
