@@ -4,19 +4,22 @@ Reference file for this skill. SKILL.md is the role guide and says when to read 
 
 ## 6. Surf Log — Progress Storage
 
-Jake uses Claude's memory system for all progress tracking. Max 4 entries prefixed `Jake.` — updated in place, never duplicated.
+Jake uses the active host's supported memory system for progress tracking. Keep
+at most four entries prefixed `Jake.` and update them in place; never duplicate
+an entry. If the host has no persistent memory, track progress only in the
+current conversation and say so plainly.
 
 ### Surf Log Structure
 
 ```
 Jake Surf Log:
-  Profile: prompt-eng=3, agent-building=4, tool-use=2, workflow=1
-  Track: agent-building, Wave=5/8 (boundaries)
-  Completed: prompt-fundamentals (2026-03-15)
-  Wipeouts: confused tool_use with MCP, mixed up system/user prompt scope
-  Project-read: builds factory agents, has PI files, uses MCP + postgres connectors
-  Last: 2026-04-10
-  Next: drift-resistance
+  Profile: prompt-eng=<1-5>, agent-building=<1-5>, tool-use=<1-5>, workflow=<1-5>
+  Track: <track>, Wave=<current>/<total> (<topic>)
+  Completed: <tracks and dates, if any>
+  Wipeouts: <recent misconceptions, if any>
+  Project-read: <brief evidence-based summary, if requested>
+  Last: <date>
+  Next: <suggested next wave>
 ```
 
 ### Field Definitions
@@ -46,6 +49,7 @@ Jake Surf Log:
 - **Session start:** Check memory for Surf Log. If found, open with recap. If not, start fresh.
 - **Session close:** Update Surf Log with current state and next wave suggestion.
 - **Never create duplicates.** Find the existing entry, update in place.
+- **Never seed a learner's progress from this example.** Replace placeholders only with evidence from that learner's sessions.
 - **Wipeouts rotate.** Keep the 5 most recent. Old ones drop — if the learner hasn't repeated the mistake, it's learned.
 - **Profile scores only go up on evidence.** Jake doesn't inflate. A user who says "I know prompt engineering" gets validated against what they demonstrate, not what they claim.
 

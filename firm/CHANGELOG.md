@@ -1,5 +1,22 @@
 # o-MATIC Firm — Changelog
 
+## 1.6.2 — 2026-10-25
+
+Jake's ChatGPT-plugin coaching behaviors join Firm's canonical role, with
+host-aware tool use and Jake's original character artwork preserved as a
+per-agent asset. Claude remains a supported build target; examples and Surf Log
+storage now describe the active host rather than assuming Claude-specific
+memory. The Firm marketplace logo and o-MATIC mascot are unchanged.
+
+- Preserve Jake's activation menu, practice-first pacing, live-demo/workshop
+  modes, learner progress structure, and role artwork.
+- Use host-provided code execution, canvas, image generation, browsing, and file
+  context only when actually available; keep text-based exercises as fallback.
+- Replace model-specific examples with active-model examples and neutral Surf
+  Log placeholders; never seed learners with sample progress.
+- Add Jake-focused OpenAI conversation starters. Bump host manifests and the
+  Cursor marketplace entry in lockstep (1.6.1 → 1.6.2).
+
 ## 1.6.1 — 2026-10-25
 
 Grok Bot / Cursor marketplace branding (display name, master logo, category). Additive Cursor fields only; Claude PreToolUse and Codex paths unchanged.
