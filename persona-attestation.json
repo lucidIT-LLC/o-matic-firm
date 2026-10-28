@@ -2,8 +2,8 @@
  "schema": 2,
  "pack": "o-matic-firm",
  "tenant": "omatic",
- "source": "scripts/persona-attest-export.sql through the o-MATIC Server (connection whose database is o-matic), public.v_persona_version_gate recomputed signatures + factory.persona_build, tenant omatic. Exported 2026-09-28 by Carver for task #1002 (schema 2: signature strings, declares_identity).",
- "generated_at": "2026-09-28 15:00:53.876778-04:00",
+ "source": "scripts/persona-attest-export.sql through the o-MATIC Server (connection whose database is o-matic), public.v_persona_version_gate recomputed signatures + factory.persona_build, tenant omatic. Exported 2026-09-28 by Carver for task #1002 (schema 2: signature strings, declares_identity). Jerry entry added 2026-10-28 by Probot for PR #6 (build row 125, decision #785).",
+ "generated_at": "2026-10-28 15:01:42.283403-04:00",
  "personas": [
   {
    "skill": "jake-coach",
@@ -14,6 +14,19 @@
    "declares_identity": true,
    "verdict": "PASS",
    "source_skill_version": "jake-coach 2.1.0 (firm 1.4.0)",
+   "character_bible": 1,
+   "dimensions": 8,
+   "builds": 1
+  },
+  {
+   "skill": "jerry-accountant",
+   "agent_name": "jerry",
+   "version": 1,
+   "review_status": "published",
+   "identity_signature": "b5f3590a09c4227f52f9fe42c115f6e7",
+   "declares_identity": true,
+   "verdict": "PASS",
+   "source_skill_version": "0.2.1-draft",
    "character_bible": 1,
    "dimensions": 8,
    "builds": 1
