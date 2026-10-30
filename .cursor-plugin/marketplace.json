@@ -4,15 +4,15 @@
     "name": "LucidIT, LLC"
   },
   "metadata": {
-    "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane) and Jake (AI coach). Ships no MCP server.",
-    "version": "1.6.2"
+    "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane), Jake (AI coach), and Jerry (accountant). Grok Bot host skills ship for Jake and Jerry. Ships no MCP server.",
+    "version": "1.6.3"
   },
   "plugins": [
     {
       "name": "firm",
       "source": "./firm",
-      "description": "Retained expertise for an o-MATIC factory — Smith and Jake. Ships no MCP server.",
-      "version": "1.6.2",
+      "description": "Retained expertise for an o-MATIC factory — Smith, Jake, and Jerry. Grok Bot host skills ship for Jake and Jerry. Ships no MCP server.",
+      "version": "1.6.3",
       "displayName": "o-MATIC Firm",
       "logo": "firm/assets/logo.png",
       "category": "productivity"

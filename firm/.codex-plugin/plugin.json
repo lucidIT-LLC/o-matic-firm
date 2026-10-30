@@ -1,7 +1,7 @@
 {
   "name": "firm",
-  "version": "1.6.2",
-  "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
+  "version": "1.6.3",
+  "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane), Jake (AI coaching), and Jerry (accounting, report-only). Grok Bot host skills ship for Jake and Jerry. Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
   "author": {
     "name": "LucidIT, LLC",
     "url": "https://o-matic.ai"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "o-MATIC Firm",
     "shortDescription": "Retain expertise — adversarial review, eval evidence, and practice-first AI coaching.",
-    "longDescription": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane) and Jake (AI coaching). Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
+    "longDescription": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane), Jake (AI coaching), and Jerry (accounting, report-only). Grok Bot host skills ship for Jake and Jerry. Probot's Agency tool-discovery skill replaces the retired Tim role. Ships NO MCP server by design.",
     "developerName": "LucidIT, LLC",
     "category": "Productivity",
     "capabilities": [

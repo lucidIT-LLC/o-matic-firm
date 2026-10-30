@@ -19,4 +19,11 @@ Measured gap on some Cursor 4.7 sessions: the marketplace cache can exist while 
 
 ## Prompt substitutes (Claude hooks are absent on Cursor)
 
-Every `adapters/cursor/<role>.md` and `adapters/grok/<role>.md` card mandates: first-call `startup` + Project-stable `conversation_key`, believe card `state`, copy Probot's key into `kernel_*` (Probot owns plan; join via delegate/return), Decision 694 ≤3 specialists, multi-host MCP reconnect (Cursor / Codex / Claude `/mcp` / generic — never Claude-only), `omatic_guide` before unsure capability claims, GrokBot undefined.
+Every `adapters/cursor/<role>.md` card mandates: first-call `startup` + Project-stable `conversation_key`, believe card `state`, copy Probot's key into `kernel_*` (Probot owns plan; join via delegate/return), Decision 694 ≤3 specialists, multi-host MCP reconnect (Cursor / Codex / Claude `/mcp` / generic — never Claude-only), `omatic_guide` before unsure capability claims. Grok Bot is a defined host and a separate binding. Do not reuse a Cursor principal as one.
+
+Every `adapters/grok/<role>.md` card mandates the same startup, state, kernel, Decision 694, reconnect, and `omatic_guide` rules, and joins Probot's `conversation_key` instead of minting one. Grok Bot is a defined host. That card is the grok.com paste, not a Grok Bot binding. Writes wait for explicit approval of the exact content. Outgoing messages stay drafts.
+
+## Grok Bot
+
+Grok Bot is a defined host and a separate binding. Do not reuse a Cursor principal as one. Paste descriptions live in `adapters/grok-bot/`. Skills load by name.
+Host skills shipped here: `Jake` (`grok-jake`), `Jerry` (`grok-jerry`). Each is additive to that role's canonical skill.

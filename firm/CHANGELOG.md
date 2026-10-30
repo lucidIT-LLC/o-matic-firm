@@ -1,5 +1,16 @@
 # o-MATIC Firm — Changelog
 
+## 1.6.3 — 2026-10-30
+
+Grok Bot is a defined host. Jake and Jerry get host skills that sit beside
+their canonical role guides. Paste cards stop calling the host undefined.
+Claude PreToolUse and Codex paths are unchanged. Robot art is untouched.
+
+- **Host skills:** `grok-jake` and `grok-jerry`, named like Agency's `grok-<role>` skills. Paste descriptions ship in `adapters/grok-bot/`. Startup when an o-MATIC Server connector is configured, join Probot's `conversation_key` (do not mint one), Decision 694, discover tools live, show exact content before a write, and draft outgoing messages. Reply prefixes stay `Jake:` and `Jerry:`. Jerry remains a standalone opt-in consultant and read-only on finance data unless the operator approves the exact statement.
+- **Adapters:** `adapters/grok/<role>.md` (including Smith) stays the grok.com paste. `adapters/grok-bot/` is the Grok Bot description. Cursor method cards state that Grok Bot is a separate defined host. The host matrix and install notes match.
+- **Versions:** host manifests and marketplace entries move 1.6.2 → 1.6.3
+  (the Claude marketplace plugin entry had been left at 1.6.1).
+
 ## 1.6.2 — 2026-10-25
 
 Jake's ChatGPT-plugin coaching behaviors join Firm's canonical role, with

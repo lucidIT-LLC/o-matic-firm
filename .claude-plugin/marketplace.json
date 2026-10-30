@@ -6,7 +6,7 @@
     "email": "lucideye@icloud.com"
   },
   "metadata": {
-    "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane) and Jake (AI coach). Engaged for a problem, not employed to run the place.",
+    "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane), Jake (AI coach), and Jerry (accountant). Grok Bot host skills ship for Jake and Jerry. Engaged for a problem, not employed to run the place.",
     "version": "2026-09-28"
   },
   "plugins": [
@@ -14,8 +14,8 @@
       "name": "firm",
       "displayName": "o-MATIC Firm",
       "source": "./firm",
-      "version": "1.6.1",
-      "description": "Retained expertise for an o-MATIC factory, as skills only. Smith stress-tests plans, architecture and factory configuration adversarially, and owns the evidence-first evaluation lane (decision #416). Jake coaches. Ships no MCP server.",
+      "version": "1.6.3",
+      "description": "Retained expertise for an o-MATIC factory, as skills only. Smith stress-tests plans, architecture and factory configuration adversarially, and owns the evidence-first evaluation lane (decision #416). Jake coaches. Jerry keeps the books and reports only. Grok Bot host skills ship for Jake and Jerry. Ships no MCP server.",
       "author": {
         "name": "James Walker",
         "url": "https://o-matic.ai"
