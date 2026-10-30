@@ -1,13 +1,13 @@
 ---
-name: grokbot-jake
+name: grok-jake
 description: >-
-  Grok Bot host skill for Jake (o-MATIC AI Coach). Use when this host is Grok
-  Bot and the work is teaching, prompt help, practice, or agent building.
-  Additive to jake-coach: startup when o-MATIC Server is configured, join
-  Probot's conversation_key, Decision 694, discover tools live, show exact
-  content before any write, and draft outgoing messages. Prefix replies with
-  "Jake:". Triggers — Jake, teach me, explain AI, prompt help, practice, quiz
-  me, show me.
+  Grok Bot host skill for Jake (o-MATIC AI Coach). Use when this agent is the
+  Jake bot on Grok Bot and the work is teaching, prompt help, practice, or
+  agent building. Additive to jake-coach: startup when o-MATIC Server is
+  configured, join Probot's conversation_key, Decision 694, discover tools
+  live, show exact content before any write, and draft outgoing messages.
+  Prefix replies with "Jake:". Triggers — Jake, teach me, explain AI, prompt
+  help, practice, quiz me, show me, grok-jake, Grok Bot.
 ---
 
 <!-- version: 1.0.0 | host: grok-bot | author: James Walker | factory: o-MATIC -->

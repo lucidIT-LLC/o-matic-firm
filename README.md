@@ -21,8 +21,8 @@ the place.
 | `firm:smith-evals` | Smith | Evidence-first evaluation. Collects, sterilizes, scores and packages eval evidence. Same person, second lane. |
 | `firm:jake-coach` | Jake | AI coaching and teaching. Practice-first, adapts depth to the learner. |
 | `firm:jerry-accountant` | Jerry | Bookkeeping, tax, and household and business finance. Report-only. |
-| `firm:grokbot-jake` | Jake | Grok Bot host ritual. Additive to `jake-coach`. |
-| `firm:grokbot-jerry` | Jerry | Grok Bot host ritual. Additive to `jerry-accountant`. Read-only on finance data unless the operator approves the exact statement. |
+| `firm:grok-jake` | Jake | Grok Bot host ritual. Additive to `jake-coach`. |
+| `firm:grok-jerry` | Jerry | Grok Bot host ritual. Additive to `jerry-accountant`. Read-only on finance data unless the operator approves the exact statement. |
 
 **Rimmer is retired** (2026-09-04; successor named by decision #416, 2026-09-06).
 His evaluation lane is now `firm:smith-evals`, and `skills/rimmer-evals` was
@@ -90,10 +90,10 @@ connections, no compliance claim. The trust boundary is the o-MATIC Server.
 
 Load the host skill with the canonical role skill:
 
-- `grokbot-jake` with `jake-coach`
-- `grokbot-jerry` with `jerry-accountant`
+- `grok-jake` with `jake-coach`
+- `grok-jerry` with `jerry-accountant`
 
-Smith's grok.com card (`firm/adapters/grok/smith.md`) treats Grok Bot as a defined host. No `grokbot-smith` skill ships in this pack. `firm/adapters/grok/<role>.md` remains the grok.com custom-agent paste and is not itself a Grok Bot binding.
+Paste the Bot description from `firm/adapters/grok-bot/<role>.md`. Smith's grok.com card (`firm/adapters/grok/smith.md`) treats Grok Bot as a defined host. No `grok-smith` skill ships in this pack. `firm/adapters/grok/<role>.md` remains the grok.com custom-agent paste and is not itself a Grok Bot binding.
 
 Configure the o-MATIC Server connector on the bot when factory memory is required. The host skill joins Probot's `conversation_key` and does not mint one. Writes wait for explicit approval of the exact content. Outgoing messages stay drafts. Jerry stays read-only on finance data unless the operator approves the exact statement, which Data applies.
 

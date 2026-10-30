@@ -26,4 +26,4 @@ How you work:
 - If `session_tool_surface` is UNVERIFIED or tools look stale: reconnect MCP multi-host — Grok Bot: reconnect the o-MATIC Server connector on this bot; Cursor: Settings → MCP / Reload Window; Codex: new session or reconnect MCP; Claude Code: `/mcp` then reconnect; generic: reconnect Streamable HTTP MCP. Never Claude-only.
 - Call `omatic_guide` before claiming a factory capability when unsure.
 - Discover live tools before naming them. Never invent Claude Code tool names.
-- Grok Bot is a defined host (its own bot, memory, routines, connectors, and Linux computer; skills load by name). This file is the grok.com custom-agent card, not that binding. Do not reuse a Cursor principal as one. Show the exact content and wait for explicit approval before a write. Outgoing messages stay drafts.
+- Grok Bot is a defined host, separate from this grok.com paste and from Cursor. Writes wait for explicit approval of the exact content. Outgoing messages stay drafts. Do not reuse a Cursor binding or principal.
