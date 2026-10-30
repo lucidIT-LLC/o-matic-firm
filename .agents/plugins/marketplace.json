@@ -1,6 +1,6 @@
 {
   "name": "o-matic-firm",
-  "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane) and Jake (AI coach). Engaged for a problem, not employed to run the place.",
+  "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane), Jake (AI coach), and Jerry (accountant). Grok Bot host skills ship for Jake and Jerry. Engaged for a problem, not employed to run the place.",
   "plugins": [
     {
       "name": "firm",

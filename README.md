@@ -20,6 +20,9 @@ the place.
 | `firm:smith-critic` | Smith | Adversarial review. Stress-tests plans, architecture, copy and factory configuration. Cold, surgical, no softening. |
 | `firm:smith-evals` | Smith | Evidence-first evaluation. Collects, sterilizes, scores and packages eval evidence. Same person, second lane. |
 | `firm:jake-coach` | Jake | AI coaching and teaching. Practice-first, adapts depth to the learner. |
+| `firm:jerry-accountant` | Jerry | Bookkeeping, tax, and household and business finance. Report-only. |
+| `firm:grokbot-jake` | Jake | Grok Bot host ritual. Additive to `jake-coach`. |
+| `firm:grokbot-jerry` | Jerry | Grok Bot host ritual. Additive to `jerry-accountant`. Read-only on finance data unless the operator approves the exact statement. |
 
 **Rimmer is retired** (2026-09-04; successor named by decision #416, 2026-09-06).
 His evaluation lane is now `firm:smith-evals`, and `skills/rimmer-evals` was
@@ -28,8 +31,10 @@ predecessor is the defect, not the fix: a pack that still ships a retired role
 offers it free on every turn, while the roster requires a deliberate query.
 
 **Employment note.** Smith is a **contract employee** — retained, not on staff.
-Jake is an **opt-in lane** agent. Neither is constitutive: a factory starts
-without them. That is the difference between the Firm and the Agency.
+Jake is an **opt-in lane** agent. Jerry is an **opt-in consultant**, like Smith,
+and he reports rather than posting to the books. None of them is constitutive:
+a factory starts without them. That is the difference between the Firm and the
+Agency.
 
 ## The other doors
 
@@ -37,7 +42,7 @@ You don't go to a hardware store for a marketing manager. Each o-MATIC
 marketplace is named for the place you would really go:
 
 - **o-MATIC Agency** — staff who *run* the factory: Probot, Fred, Data
-- **o-MATIC Firm** — expertise you *retain*: Smith, Jake
+- **o-MATIC Firm** — expertise you *retain*: Smith, Jake, Jerry
 - **o-MATIC Studio** — people who *design and build*: Brandy, Carver, Monet, Jo, Pixel
 - **o-MATIC Supply** — *tools, not people*: the WordPress and Elementor connectors
 
@@ -81,7 +86,18 @@ connections, no compliance claim. The trust boundary is the o-MATIC Server.
 
 **Cursor:** This repository includes a Cursor plugin manifest. On Teams and Enterprise, a team admin can import this GitHub repository as a team marketplace from **Dashboard → Plugins & MCPs → Team Marketplaces → Add Marketplace → Import from Repo**, then install the `firm` plugin in Cursor Customize. Cursor requires public Marketplace plugins to be open source. This repository's current BUSL license explicitly is not open source, so it is not eligible for public Marketplace submission under the current license. LucidIT, LLC confirms that its intended public GitHub and Cursor Team Marketplace distribution route is authorized for this package. A fresh install has not yet been verified. See [Cursor's plugin guide](https://prod.cursor.com/docs/plugins) and [Marketplace submission page](https://cursor.com/marketplace/publish).
 
-**Grok Bot:** This repository is a source for the o-MATIC role; it does not itself install a Bot. Grok Bot uses its own template sharing and import flow. No o-MATIC public Bot template or clean import test is published yet. LucidIT, LLC confirms public distribution rights for the Agency, Firm, Studio, and Supply package sources. No public o-MATIC Bot template or clean import test is available yet; this README will link to the template and verified setup steps when they are ready. See [xAI's Bot sharing and import guide](https://docs.x.ai/grok-bot/bots).
+**Grok Bot:** Grok Bot is a defined host. Each role is its own bot, with a name, memory, routines, connectors, and a Linux computer. Skills load by name. This repository does not install a bot and does not ship a connector or a credential.
+
+Load the host skill with the canonical role skill:
+
+- `grokbot-jake` with `jake-coach`
+- `grokbot-jerry` with `jerry-accountant`
+
+Smith's grok.com card (`firm/adapters/grok/smith.md`) treats Grok Bot as a defined host. No `grokbot-smith` skill ships in this pack. `firm/adapters/grok/<role>.md` remains the grok.com custom-agent paste and is not itself a Grok Bot binding.
+
+Configure the o-MATIC Server connector on the bot when factory memory is required. The host skill joins Probot's `conversation_key` and does not mint one. Writes wait for explicit approval of the exact content. Outgoing messages stay drafts. Jerry stays read-only on finance data unless the operator approves the exact statement, which Data applies.
+
+No public o-MATIC Bot template is linked here yet. LucidIT, LLC confirms public distribution rights for the Agency, Firm, Studio, and Supply package sources. See [xAI's Bot sharing and import guide](https://docs.x.ai/grok-bot/bots).
 
 ## License
 

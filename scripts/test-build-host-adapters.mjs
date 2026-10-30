@@ -50,6 +50,12 @@ const run = (root, ...args) => spawnSync(process.execPath, [BUILDER, root, ...ar
   check("Gemini copy carries the reference file", existsSync(join(root, "skills/tess-testing/reference/detail.md")));
   const setup = existsSync(join(root, "demo/adapters/chatgpt/tess/SETUP.md")) ? readFileSync(join(root, "demo/adapters/chatgpt/tess/SETUP.md"), "utf8") : "";
   check("ChatGPT setup lists the reference file as knowledge", setup.includes("reference/detail.md"), setup.slice(0, 400));
+  const grokCard = existsSync(join(root, "demo/adapters/grok/tess.md")) ? readFileSync(join(root, "demo/adapters/grok/tess.md"), "utf8") : "";
+  const cursorCard = existsSync(join(root, "demo/adapters/cursor/tess.md")) ? readFileSync(join(root, "demo/adapters/cursor/tess.md"), "utf8") : "";
+  const matrix = existsSync(join(root, "demo/adapters/README.md")) ? readFileSync(join(root, "demo/adapters/README.md"), "utf8") : "";
+  check("grok card defines Grok Bot and does not mint a key", /Grok Bot is a defined host/.test(grokCard) && /Do not mint a key/.test(grokCard) && !/undefined/.test(grokCard), grokCard.slice(-400));
+  check("cursor card keeps Grok Bot as a separate defined host", /Grok Bot is a defined host/.test(cursorCard) && /do not reuse a Cursor principal/i.test(cursorCard) && !/undefined/.test(cursorCard), cursorCard.slice(-300));
+  check("host matrix ships Grok Bot as a defined host", /Grok Bot is a defined host/.test(matrix) && !/not shipped/.test(matrix), matrix.slice(-500));
   check("--check passes when current", run(root, "--check").status === 0);
   writeFileSync(join(root, "skills/tess-testing/SKILL.md"), "stale\n");
   check("--check fails on drift", run(root, "--check").status === 1);

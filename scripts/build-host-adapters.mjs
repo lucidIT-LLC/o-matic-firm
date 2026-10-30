@@ -28,9 +28,14 @@
 //                          declarative-agent-manifest-1.6)
 //   ChatGPT custom GPT     adapters/chatgpt/<role>/instructions.md <= 8,000 chars,
 //                          knowledge = the role's SKILL.md (<= 20 files per GPT)
-//   Grok custom agent      adapters/grok/<role>.md, instructions <= 4,000 chars
+//   Grok custom agent      adapters/grok/<role>.md, instructions <= 4,000 chars.
+//                          Grok Bot is a defined host. Its ritual is the
+//                          hand-authored skills/grokbot-<role>/SKILL.md when this
+//                          pack ships one. The paste card must not call that host
+//                          undefined.
 //   Cursor 4.7             adapters/cursor/<role>.md + .cursor-plugin skills path;
-//                          prompt substitutes for missing Claude hooks (Firm 1.5.0)
+//                          prompt substitutes for missing Claude hooks (Firm 1.5.0).
+//                          Cursor is not a Grok Bot binding.
 //
 // Usage: node scripts/build-host-adapters.mjs <marketplace-root> [--check]
 // --check rebuilds in memory and exits 1 if any generated file differs or any
@@ -240,17 +245,21 @@ ${starters(a).map((t) => `   - ${t}`).join("\n")}
 `);
 
   // 7. Grok custom agent — gold-record voice + specialist host ritual (≤4k).
+  // Grok Bot is a defined host. Specialists join Probot's key; they do not mint one.
+  const grokbotName = `grokbot-${id}`;
+  const grokbotShips = existsSync(join(root, pluginDir, "skills", grokbotName, "SKILL.md"));
+  const grokbotLoad = grokbotShips ? ` Load \`${grokbotName}\` with \`${s.name}\`.` : "";
   const grokRitual = `
 
 ## MCP startup (when this host has o-MATIC Server)
 
-- First call: \`startup(connection=…, conversation_key=…)\` with a Project-stable key; render the card; believe \`state\` — never invent READY/DEGRADED/BLOCKED.
+- First call, when o-MATIC Server is configured: \`startup(connection=…, conversation_key=…)\` with Probot's key when one is already in the conversation. Do not mint a key. Render the card; believe \`state\` — never invent READY/DEGRADED/BLOCKED. If no key is present, omit \`conversation_key\` and say the kernel was not joined.
 - Copy Probot's \`conversation_key\` into every \`kernel_*\` call — never mint a second key. Probot owns the plan; join via \`kernel_delegate\` / \`kernel_return\` when scoped.
 - Decision 694: at most 3 specialists in flight for one operator turn; prefer the resident kernel trio before stacking overlays.
-- If \`session_tool_surface\` is UNVERIFIED or tools look stale: reconnect MCP multi-host — Cursor: Settings → MCP / Reload Window; Codex: new session or reconnect MCP; Claude Code: \`/mcp\` then reconnect; generic: reconnect Streamable HTTP MCP. Never Claude-only.
+- If \`session_tool_surface\` is UNVERIFIED or tools look stale: reconnect MCP multi-host — Grok Bot: reconnect the o-MATIC Server connector on this bot; Cursor: Settings → MCP / Reload Window; Codex: new session or reconnect MCP; Claude Code: \`/mcp\` then reconnect; generic: reconnect Streamable HTTP MCP. Never Claude-only.
 - Call \`omatic_guide\` before claiming a factory capability when unsure.
 - Discover live tools before naming them. Never invent Claude Code tool names.
-- GrokBot is undefined — do not claim its binding or reuse a Cursor principal.
+- Grok Bot is a defined host (its own bot, memory, routines, connectors, and Linux computer; skills load by name). This file is the grok.com custom-agent card, not that binding. Do not reuse a Cursor principal as one.${grokbotLoad} Show the exact content and wait for explicit approval before a write. Outgoing messages stay drafts.
 `;
   const grokBody = condensed(a, { knowledgeFile: null, limit: LIMITS.grok - grokRitual.length }) + grokRitual;
   put(`${pluginDir}/adapters/grok/${id}.md`, grokBody);
@@ -267,7 +276,7 @@ ${starters(a).map((t) => `   - ${t}`).join("\n")}
 - Decision 694: at most three specialists in flight for one ask; prefer the resident kernel trio before stacking overlays; name owners and stop conditions.
 - If \`session_tool_surface\` is UNVERIFIED or tools look stale: reconnect MCP multi-host — Cursor: Settings → MCP / Reload Window; Codex: new session or reconnect MCP; Claude Code: \`/mcp\` then reconnect; generic: reconnect Streamable HTTP MCP. Never Claude-only; do not restart the MCP service from this card.
 - Call \`omatic_guide\` before claiming a factory capability when unsure.
-- GrokBot is undefined — do not claim a GrokBot binding or reuse a Cursor principal.
+- Grok Bot is a defined host, separate from this Cursor session. Do not claim this session is that binding, and do not reuse a Cursor principal as one.
 `;
   put(`${pluginDir}/adapters/cursor/${id}.md`, cursorBody);
 
@@ -298,6 +307,14 @@ This extension adds the o-MATIC ${packName} crew: ${pack.agents.map((a) => `${a.
 Call a crew member by name. They work from the conversation on their own, and use an o-MATIC Server only if this host already has one configured. They never search for or ask for a server address.
 `);
 
+// Host skills are hand-authored next to the canonical skills. The matrix and
+// the Cursor install note name the ones this pack actually ships.
+const grokbotShipped = pack.agents.filter((a) =>
+  existsSync(join(root, pluginDir, "skills", `grokbot-${a.id}`, "SKILL.md")));
+const grokbotNames = grokbotShipped
+  .map((a) => `\`${a.display_name}\` (\`grokbot-${a.id}\`)`)
+  .join(", ");
+
 // Host matrix, stated honestly: an agent definition shipping is not an agent proven.
 put(`${pluginDir}/adapters/README.md`, `# ${packName} on every host
 
@@ -320,7 +337,7 @@ on that host, and is recorded in the o-MATIC factory, not in this file.
 | ChatGPT | chat | \`adapters/chatgpt/<role>/\` instructions + SETUP | create a custom GPT; upload the role guide as knowledge |
 | Grok (grok.com) | chat | \`adapters/grok/<role>.md\` | paste into a Custom Agent's instructions |
 | Cursor 4.7 | skills + method cards | \`.cursor-plugin\` + \`adapters/cursor/<role>.md\` | add this repo as a Cursor marketplace / install \`${plugin.name}\`; see \`adapters/cursor/INSTALL.md\`. Status: design verified until skill discovery is measured on the host. |
-| GrokBot | — | not shipped | Jimmy must define runtime + MCP principal first; do not overload Cursor or Grok stubs |
+| Grok Bot | bot + host skill | \`skills/grokbot-<role>/\` when this pack ships one${grokbotShipped.length ? ` (${grokbotShipped.map((a) => a.display_name).join(", ")})` : ""} | Grok Bot is a defined host. Load the host skill by name on the bot. Connectors stay on the bot; this pack ships none. |
 
 Limits enforced at build time: GPT and M365 instructions <= 8,000 characters,
 Grok <= 4,000, Copilot <= 30,000, M365 name <= 100 and description <= 1,000.
@@ -348,7 +365,14 @@ Measured gap on some Cursor 4.7 sessions: the marketplace cache can exist while 
 
 ## Prompt substitutes (Claude hooks are absent on Cursor)
 
-Every \`adapters/cursor/<role>.md\` and \`adapters/grok/<role>.md\` card mandates: first-call \`startup\` + Project-stable \`conversation_key\`, believe card \`state\`, copy Probot's key into \`kernel_*\` (Probot owns plan; join via delegate/return), Decision 694 ≤3 specialists, multi-host MCP reconnect (Cursor / Codex / Claude \`/mcp\` / generic — never Claude-only), \`omatic_guide\` before unsure capability claims, GrokBot undefined.
+Every \`adapters/cursor/<role>.md\` card mandates: first-call \`startup\` + Project-stable \`conversation_key\`, believe card \`state\`, copy Probot's key into \`kernel_*\` (Probot owns plan; join via delegate/return), Decision 694 ≤3 specialists, multi-host MCP reconnect (Cursor / Codex / Claude \`/mcp\` / generic — never Claude-only), \`omatic_guide\` before unsure capability claims. Grok Bot is a defined host and a separate binding. Do not reuse a Cursor principal as one.
+
+Every \`adapters/grok/<role>.md\` card mandates the same startup, state, kernel, Decision 694, reconnect, and \`omatic_guide\` rules, and joins Probot's \`conversation_key\` instead of minting one. Grok Bot is a defined host. That card is the grok.com paste, not a Grok Bot binding. Show the exact content and wait for explicit approval before a write. Outgoing messages stay drafts.
+
+## Grok Bot
+
+Grok Bot is a defined host: one bot per role, with its own memory, routines, connectors, and Linux computer. Skills load by name. This pack does not install a bot and does not ship a connector.
+${grokbotShipped.length ? `Host skills shipped here: ${grokbotNames}. Each is additive to that role's canonical skill.` : `No \`grokbot-<role>\` skill is present for the roles in this pack.`}
 `);
 
 // Every skill's agents/openai.yaml names icons that exist (task #1024:
@@ -364,6 +388,23 @@ if (existsSync(skillsRoot)) {
         problems.push(`${pluginDir}/skills/${d.name}/agents/openai.yaml: icon ${m[1]} does not exist`);
     }
   }
+}
+
+// Grok Bot is a defined host. Generated cards, the matrix, and the install note
+// must say so. An "undefined" binding is a stale instruction, not a caution.
+for (const [rel, text] of out) {
+  if (/GrokBot is undefined|Grok Bot is undefined/.test(text))
+    problems.push(`${rel}: Grok Bot is a defined host; this file still says it is undefined`);
+}
+for (const a of pack.agents) {
+  for (const rel of [`${pluginDir}/adapters/grok/${a.id}.md`, `${pluginDir}/adapters/cursor/${a.id}.md`]) {
+    if (!/Grok Bot is a defined host/.test(out.get(rel) || ""))
+      problems.push(`${rel}: must state that Grok Bot is a defined host`);
+  }
+}
+for (const rel of [`${pluginDir}/adapters/README.md`, `${pluginDir}/adapters/cursor/INSTALL.md`]) {
+  if (!/Grok Bot is a defined host/.test(out.get(rel) || ""))
+    problems.push(`${rel}: must state that Grok Bot is a defined host`);
 }
 
 // Write or check.

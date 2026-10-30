@@ -11,7 +11,8 @@ Server MCP pairing separately.
   the pack must rewrite that reference on deployment — and must not pin a
   version-numbered plugin-cache path, which the next update breaks silently.
 - **Codex:** install `firm/` as a plugin.
-- **Cursor 4.7:** install this repository as a Cursor plugin marketplace, then install the `firm` plugin (`.cursor-plugin`, skills only, no MCP). Method cards and host rules live in `adapters/cursor/`; see `adapters/cursor/INSTALL.md` for the marketplace path and the Project-skills fallback if `firm:*` skills do not appear on the agent skill list.
+- **Cursor 4.7:** install this repository as a Cursor plugin marketplace, then install the `firm` plugin (`.cursor-plugin`, skills only, no MCP). Method cards and host rules live in `adapters/cursor/`; see `adapters/cursor/INSTALL.md` for the marketplace path and the Project-skills fallback if `firm:*` skills do not appear on the agent skill list. Cursor is not a Grok Bot binding.
+- **Grok Bot:** Grok Bot is a defined host. Install the `firm` skills and enable `grokbot-jake` (with `jake-coach`) or `grokbot-jerry` (with `jerry-accountant`) on that bot. The bot's connectors, memory, and computer stay on the bot. This pack ships no MCP server. Paste `adapters/grok/<role>.md` only for a grok.com custom agent; that card is not the bot.
 - **Copilot:** copy `adapters/copilot/.github/` into the target workspace. It is
   self-contained — its adapter core travels with it under `.github/omatic/` — so
   the Firm pack does **not** need to be checked out alongside. Install `skills/`
