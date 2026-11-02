@@ -23,6 +23,9 @@ the place.
 | `firm:jerry-accountant` | Jerry | Bookkeeping, tax, and household and business finance. Report-only. |
 | `firm:grok-jake` | Jake | Grok Bot host ritual. Additive to `jake-coach`. |
 | `firm:grok-jerry` | Jerry | Grok Bot host ritual. Additive to `jerry-accountant`. Read-only on finance data unless the operator approves the exact statement. |
+| `firm:m365-smith` | Smith | Microsoft 365 Copilot host boundary. Additive to `smith-critic`. Read-only o-MATIC Foundry actions. Not uploaded. |
+| `firm:m365-jake` | Jake | Microsoft 365 Copilot host boundary. Additive to `jake-coach`. Read-only o-MATIC Foundry actions. Not uploaded. |
+| `firm:m365-jerry` | Jerry | Microsoft 365 Copilot host boundary. Chat-only. Not legal or tax advice. Not uploaded. |
 
 **Rimmer is retired** (2026-09-04; successor named by decision #416, 2026-09-06).
 His evaluation lane is now `firm:smith-evals`, and `skills/rimmer-evals` was
@@ -65,6 +68,8 @@ node scripts/verify-pack.mjs .                        # no retired mechanism, re
 node scripts/verify-identity-attestation.mjs .        # shipped identities match the committed gold-record export (offline)
 node firm/scripts/check-paths.mjs                 # every file reference resolves, including the Copilot payload
 node firm/scripts/sync-copilot-payload.mjs --check
+node scripts/build-m365-packages.mjs              # local zips under dist/; not uploaded
+node scripts/verify-m365.mjs . --require-dist     # Microsoft schemas, tool pins, icon sizes
 node firm/scripts/verify-adapter-paths.test.mjs   # the adapter deploy check can fail
 ```
 
@@ -94,6 +99,10 @@ Load the host skill with the canonical role skill:
 - `grok-jerry` with `jerry-accountant`
 
 Paste the Bot description from `firm/adapters/grok-bot/<role>.md`. Smith's grok.com card (`firm/adapters/grok/smith.md`) treats Grok Bot as a defined host. No `grok-smith` skill ships in this pack. `firm/adapters/grok/<role>.md` remains the grok.com custom-agent paste and is not itself a Grok Bot binding.
+
+## Microsoft 365 Copilot
+
+Smith, Jake, and Jerry each have an app package under `firm/adapters/m365/<role>/appPackage/`. The declarative agent schema is v1.9. The Teams app manifest is v1.30. Jake and Smith pin read-only o-MATIC tools and may read o-MATIC Foundry only. Jerry is chat-only and his instructions say this is not legal or tax advice. Build a local zip with `node scripts/build-m365-packages.mjs`. Do not upload it. SSO and the read-only database login are still ahead, and the outline icons are still pending. See `firm/adapters/m365/INSTALL.md`.
 
 Configure the o-MATIC Server connector on the bot when factory memory is required. The host skill joins Probot's `conversation_key` and does not mint one. Writes wait for explicit approval of the exact content. Outgoing messages stay drafts. Jerry stays read-only on finance data unless the operator approves the exact statement, which Data applies.
 

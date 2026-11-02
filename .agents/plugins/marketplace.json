@@ -1,6 +1,24 @@
 {
   "name": "o-matic-firm",
-  "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane), Jake (AI coach), and Jerry (accountant). Grok Bot host skills ship for Jake and Jerry. Engaged for a problem, not employed to run the place.",
+  "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane), Jake (AI coach), and Jerry (accountant). Grok Bot host skills ship for Jake and Jerry. Microsoft 365 Copilot app sources ship for Smith, Jake, and Jerry and are not uploaded from this pack. Engaged for a problem, not employed to run the place.",
+  "keywords": ["m365-copilot", "github-copilot"],
+  "metadata": {
+    "version": "1.7.0",
+    "hosts": {
+      "m365": {
+        "kind": "declarative-agent-app",
+        "status": "source-only",
+        "schema": "declarative-agent/v1.9",
+        "appManifest": "teams/v1.30",
+        "packages": [
+          {"role": "smith", "version": "1.7.0", "path": "firm/adapters/m365/smith/appPackage"},
+          {"role": "jake", "version": "1.7.0", "path": "firm/adapters/m365/jake/appPackage"},
+          {"role": "jerry", "version": "1.7.0", "path": "firm/adapters/m365/jerry/appPackage"}
+        ]
+      },
+      "github-copilot": {"path": "firm/adapters/copilot/.github/agents"}
+    }
+  },
   "plugins": [
     {
       "name": "firm",

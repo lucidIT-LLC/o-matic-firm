@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.9/schema.json",
+  "version": "v1.9",
+  "name": "Jake (o-MATIC)",
+  "description": "AI Coach from o-MATIC. Teaching, coaching, prompt help, practice, and agent-building guidance.",
+  "instructions": "$[file('instructions.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Learn a concept",
+      "text": "Jake, teach me how agent skills activate."
+    },
+    {
+      "title": "Prompt help",
+      "text": "Jake, help me improve this prompt."
+    },
+    {
+      "title": "Practice",
+      "text": "Jake, give me a short practice exercise on prompting."
+    },
+    {
+      "title": "Quiz me",
+      "text": "Jake, quiz me on what we covered."
+    },
+    {
+      "title": "Build an agent",
+      "text": "Jake, walk me through designing a simple Copilot agent."
+    }
+  ],
+  "agent_skills": [
+    {
+      "folder": "./skills/m365-jake"
+    },
+    {
+      "folder": "./skills/jake-coach"
+    }
+  ],
+  "actions": [
+    {
+      "id": "omaticServer",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "tools": [
+    {
+      "name": "omatic_guide",
+      "description": "Read the o-MATIC operating guide for a named topic. Read-only.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    {
+      "name": "search",
+      "description": "Search factory records the signed-in user is allowed to read. Read-only.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  ]
+}

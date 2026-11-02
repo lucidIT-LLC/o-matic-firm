@@ -1,7 +1,7 @@
 {
   "name": "firm",
-  "version": "1.6.3",
-  "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane), Jake (AI coaching), and Jerry (accounting, report-only). Grok Bot host skills ship for Jake and Jerry. Probot's Agency tool-discovery skill replaces the retired Tim role. Ships no MCP server.",
+  "version": "1.7.0",
+  "description": "Retained expertise for an o-MATIC factory — Smith (adversarial review, plus the evidence-first evaluation lane), Jake (AI coaching), and Jerry (accounting, report-only). Grok Bot host skills ship for Jake and Jerry. Microsoft 365 Copilot app sources ship for Smith, Jake, and Jerry and are not uploaded from this pack. Probot's Agency tool-discovery skill replaces the retired Tim role. Ships no MCP server.",
   "author": {
     "name": "LucidIT, LLC",
     "url": "https://o-matic.ai"
@@ -16,7 +16,9 @@
     "audit",
     "skill-only",
     "cursor",
-    "grok-bot"
+    "grok-bot",
+    "m365-copilot",
+    "github-copilot"
   ],
   "skills": "./skills/",
   "displayName": "o-MATIC Firm",

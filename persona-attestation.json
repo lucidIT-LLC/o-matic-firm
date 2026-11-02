@@ -2,7 +2,7 @@
  "schema": 2,
  "pack": "o-matic-firm",
  "tenant": "omatic",
- "source": "scripts/persona-attest-export.sql through the o-MATIC Server (connection whose database is o-matic), public.v_persona_version_gate recomputed signatures + factory.persona_build, tenant omatic. Exported 2026-09-28 by Carver for task #1002 (schema 2: signature strings, declares_identity). Jerry entry added 2026-10-28 by Probot for PR #6 (build row 125, decision #785). Grok Bot host-lane rows grok-jake and grok-jerry added 2026-10-30 as declares_identity false aliases of the already-certified jake and jerry personas (same signature, bible, dimensions, and build count; Agency grok-<role> pattern). Not a new persona_build.",
+ "source": "scripts/persona-attest-export.sql through the o-MATIC Server (connection whose database is o-matic), public.v_persona_version_gate recomputed signatures + factory.persona_build, tenant omatic. Exported 2026-09-28 by Carver for task #1002 (schema 2: signature strings, declares_identity). Jerry entry added 2026-10-28 by Probot for PR #6 (build row 125, decision #785). Grok Bot host-lane rows grok-jake and grok-jerry added 2026-10-30 as declares_identity false aliases of the already-certified jake and jerry personas (same signature, bible, dimensions, and build count; Agency grok-<role> pattern). Microsoft 365 host-lane rows m365-smith, m365-jake, and m365-jerry added 2026-11-02 the same way. Skill version markers recorded here moved with firm 1.7.0 (jake-coach 2.2.0, smith-critic 7.5.0, jerry-accountant 0.3.0). Not a new persona_build. Signatures unchanged.",
  "generated_at": "2026-10-28 15:01:42.283403-04:00",
  "personas": [
   {
@@ -13,7 +13,20 @@
    "identity_signature": "8755c1f939f17e74af83810fc10bc827",
    "declares_identity": true,
    "verdict": "PASS",
-   "source_skill_version": "jake-coach 2.1.0 (firm 1.4.0)",
+   "source_skill_version": "jake-coach 2.2.0 (firm 1.7.0)",
+   "character_bible": 1,
+   "dimensions": 8,
+   "builds": 1
+  },
+  {
+   "skill": "m365-jake",
+   "agent_name": "jake",
+   "version": 1,
+   "review_status": "published",
+   "identity_signature": "8755c1f939f17e74af83810fc10bc827",
+   "declares_identity": false,
+   "verdict": "PASS",
+   "source_skill_version": "jake-coach 2.2.0 (firm 1.7.0)",
    "character_bible": 1,
    "dimensions": 8,
    "builds": 1
@@ -26,7 +39,7 @@
    "identity_signature": "8755c1f939f17e74af83810fc10bc827",
    "declares_identity": false,
    "verdict": "PASS",
-   "source_skill_version": "jake-coach 2.1.0 (firm 1.4.0)",
+   "source_skill_version": "jake-coach 2.2.0 (firm 1.7.0)",
    "character_bible": 1,
    "dimensions": 8,
    "builds": 1
@@ -39,7 +52,20 @@
    "identity_signature": "b5f3590a09c4227f52f9fe42c115f6e7",
    "declares_identity": true,
    "verdict": "PASS",
-   "source_skill_version": "0.2.1-draft",
+   "source_skill_version": "0.3.0",
+   "character_bible": 1,
+   "dimensions": 8,
+   "builds": 1
+  },
+  {
+   "skill": "m365-jerry",
+   "agent_name": "jerry",
+   "version": 1,
+   "review_status": "published",
+   "identity_signature": "b5f3590a09c4227f52f9fe42c115f6e7",
+   "declares_identity": false,
+   "verdict": "PASS",
+   "source_skill_version": "0.3.0",
    "character_bible": 1,
    "dimensions": 8,
    "builds": 1
@@ -52,7 +78,7 @@
    "identity_signature": "b5f3590a09c4227f52f9fe42c115f6e7",
    "declares_identity": false,
    "verdict": "PASS",
-   "source_skill_version": "0.2.1-draft",
+   "source_skill_version": "0.3.0",
    "character_bible": 1,
    "dimensions": 8,
    "builds": 1
@@ -65,7 +91,20 @@
    "identity_signature": "e022a10993e4ee1b5d035da8db962e5d",
    "declares_identity": true,
    "verdict": "PASS",
-   "source_skill_version": "7.1.2",
+   "source_skill_version": "7.5.0",
+   "character_bible": 1,
+   "dimensions": 3,
+   "builds": 3
+  },
+  {
+   "skill": "m365-smith",
+   "agent_name": "smith",
+   "version": 1,
+   "review_status": "published",
+   "identity_signature": "e022a10993e4ee1b5d035da8db962e5d",
+   "declares_identity": false,
+   "verdict": "PASS",
+   "source_skill_version": "7.5.0",
    "character_bible": 1,
    "dimensions": 3,
    "builds": 3

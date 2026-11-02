@@ -1,5 +1,35 @@
 # o-MATIC Firm — Changelog
 
+## 1.7.0 — 2026-11-02
+
+Microsoft 365 Copilot app sources for Smith, Jake, and Jerry. One app per
+agent. Nothing in this release is uploaded, published, or pointed at a tenant.
+
+- **Packages:** `firm/adapters/m365/<role>/appPackage/` replaces the v1.6
+  declarative-agent file. App manifest v1.30, declarative agent v1.9,
+  instructions condensed from the role, titled starters, and a pinned
+  read-only plugin where the role has tools. Smith pins six tools. Jake pins
+  two. Jerry is chat-only and carries a not-tax-advice disclaimer. The MCP
+  URL, Teams app id, and Entra SSO auth id stay placeholders. Privacy and
+  terms URLs are TODO.
+- **Tools:** `connections_list`, `omatic_guide`, `search`,
+  `slate_entity_search`, `slate_entity_verify`, and `task_relationships` for
+  Smith. `omatic_guide` and `search` for Jake. `factory_query`, `startup`,
+  and every write tool stay out. The first factory a tool-using agent may
+  read is o-MATIC Foundry, read-only.
+- **Host skills:** `m365-smith`, `m365-jake`, and `m365-jerry` at 1.0.0,
+  additive to the canonical role skills. Persona lines stay as written,
+  including Smith's "You're welcome" and Jerry's "the accountant the IRS
+  feared". Store review may flag them.
+- **Build:** `node scripts/build-m365-packages.mjs` writes zips under `dist/`
+  (gitignored). `node scripts/verify-m365.mjs` checks Microsoft's published
+  schemas and icon sizes. A missing outline icon warns. It does not fail.
+  Color icons are resized from repo art. Outlines are pending.
+- **Versions:** host manifests and marketplace entries move 1.6.3 → 1.7.0.
+  Role markers move jake-coach 2.1.0 → 2.2.0, smith-critic 7.4.0 → 7.5.0,
+  jerry-accountant 0.2.1-draft → 0.3.0. Attestation adds the three host-lane
+  rows. Signatures are unchanged. This is not a new persona build.
+
 ## 1.6.3 — 2026-10-30
 
 Grok Bot is a defined host. Jake and Jerry get host skills that sit beside
