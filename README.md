@@ -24,7 +24,7 @@ the place.
 | `firm:grok-jake` | Jake | Grok Bot host ritual. Additive to `jake-coach`. |
 | `firm:grok-jerry` | Jerry | Grok Bot host ritual. Additive to `jerry-accountant`. Read-only on finance data unless the operator approves the exact statement. |
 
-**Rimmer is retired** (2026-09-04; successor named by decision #416, 2026-09-06).
+**Rimmer is retired** (2026-09-04; successor named by the recorded decision, 2026-09-06).
 His evaluation lane is now `firm:smith-evals`, and `skills/rimmer-evals` was
 removed from this pack in 1.3.0. Adding the successor without removing the
 predecessor is the defect, not the fix: a pack that still ships a retired role
@@ -52,7 +52,7 @@ A plugin that declares an `mcpServers` block is **omitted** by hosted-marketplac
 hosts — measured on two hosts and exactly reproducible. Shipping skills alone is
 what lets them install on Cowork, Claude Code desktop, and any sandboxed host.
 
-**Compatibility tier (rule #284):** on a host with the o-MATIC Server MCP surface
+**Compatibility tier:** on a host with the o-MATIC Server MCP surface
 configured, these operate fully. On a **prompt-only host — including a local
 Ollama model — they are behavior-only, with no factory database capability.**
 Voice, lane discipline and judgement still work; the factory brain does not.
@@ -70,7 +70,7 @@ node firm/scripts/verify-adapter-paths.test.mjs   # the adapter deploy check can
 
 CI (`.github/workflows/verify-pack.yml`) runs the same steps. Two more run
 **locally, before a release**, because they need this host: the Spirit Gate
-(rule #350), `OMATIC_MCP_URL=… OMATIC_MCP_TOKEN=… node scripts/spirit-gate-check.mjs .`,
+`OMATIC_MCP_URL=… OMATIC_MCP_TOKEN=… node scripts/spirit-gate-check.mjs.`,
 and, after the release is installed, `node <installed plugin>/scripts/verify-adapter-paths.mjs`.
 
 The tooling above is one canonical copy in `o-matic-studio`, synced into the
