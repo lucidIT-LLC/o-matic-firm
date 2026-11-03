@@ -1,5 +1,13 @@
 # o-MATIC Firm — Changelog
 
+
+## 1.6.4 — 2026-11-03
+
+Original animated pet art is now included with straightforward export and installation guidance. Installing the plugin does not select a pet, and the artwork does not change persona behavior.
+
+- **Pet asset:** Jake v2 sprite, metadata, and install instructions under `firm/assets/pets/jake/v2/`.
+- **Versions:** host manifests and `gemini-extension.json` move 1.6.3 → 1.6.4 in lockstep.
+
 ## 1.6.3 — 2026-10-30
 
 Grok Bot is a defined host. Jake and Jerry get host skills that sit beside
