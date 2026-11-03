@@ -27,7 +27,7 @@ the place.
 | `firm:m365-jake` | Jake | Microsoft 365 Copilot host boundary. Additive to `jake-coach`. Read-only o-MATIC Foundry actions. Not uploaded. |
 | `firm:m365-jerry` | Jerry | Microsoft 365 Copilot host boundary. Chat-only. Not legal or tax advice. Not uploaded. |
 
-**Rimmer is retired** (2026-09-04; successor named by decision #416, 2026-09-06).
+**Rimmer is retired** (2026-09-04; successor named by the recorded decision, 2026-09-06).
 His evaluation lane is now `firm:smith-evals`, and `skills/rimmer-evals` was
 removed from this pack in 1.3.0. Adding the successor without removing the
 predecessor is the defect, not the fix: a pack that still ships a retired role
@@ -38,6 +38,10 @@ Jake is an **opt-in lane** agent. Jerry is an **opt-in consultant**, like Smith,
 and he reports rather than posting to the books. None of them is constitutive:
 a factory starts without them. That is the difference between the Firm and the
 Agency.
+
+## Optional Jake pet
+
+[Install the Jake pet](<codex://pets/install?name=Jake&imageUrl=https%3A%2F%2Fraw.githubusercontent.com%2FlucidIT-LLC%2Fo-matic-firm%2Fmain%2Ffirm%2Fassets%2Fpets%2Fjake%2Fv2%2Fjake-pet-v2.png&description=Jake%2C%20the%20curious%20o-MATIC%20AI%20surfer-professor%20robot%20coach.&spriteVersionNumber=2>) opens the separate Codex pet install flow. The original v2 PNG and instructions are in [`firm/assets/pets/jake/v2/README.md`](firm/assets/pets/jake/v2/README.md). Installing the marketplace plugin does not select or activate a pet.
 
 ## The other doors
 
@@ -55,7 +59,7 @@ A plugin that declares an `mcpServers` block is **omitted** by hosted-marketplac
 hosts — measured on two hosts and exactly reproducible. Shipping skills alone is
 what lets them install on Cowork, Claude Code desktop, and any sandboxed host.
 
-**Compatibility tier (rule #284):** on a host with the o-MATIC Server MCP surface
+**Compatibility tier:** on a host with the o-MATIC Server MCP surface
 configured, these operate fully. On a **prompt-only host — including a local
 Ollama model — they are behavior-only, with no factory database capability.**
 Voice, lane discipline and judgement still work; the factory brain does not.
@@ -75,7 +79,7 @@ node firm/scripts/verify-adapter-paths.test.mjs   # the adapter deploy check can
 
 CI (`.github/workflows/verify-pack.yml`) runs the same steps. Two more run
 **locally, before a release**, because they need this host: the Spirit Gate
-(rule #350), `OMATIC_MCP_URL=… OMATIC_MCP_TOKEN=… node scripts/spirit-gate-check.mjs .`,
+`OMATIC_MCP_URL=… OMATIC_MCP_TOKEN=… node scripts/spirit-gate-check.mjs.`,
 and, after the release is installed, `node <installed plugin>/scripts/verify-adapter-paths.mjs`.
 
 The tooling above is one canonical copy in `o-matic-studio`, synced into the

@@ -572,7 +572,7 @@ ${starters(a).map((t) => `   - ${t}`).join("\n")}
 
 - First call, when o-MATIC Server is configured: \`startup(connection=…, conversation_key=…)\` with Probot's key when one is already in the conversation. Do not mint a key. Render the card; believe \`state\` — never invent READY/DEGRADED/BLOCKED. If no key is present, omit \`conversation_key\` and say the kernel was not joined.
 - Copy Probot's \`conversation_key\` into every \`kernel_*\` call — never mint a second key. Probot owns the plan; join via \`kernel_delegate\` / \`kernel_return\` when scoped.
-- Decision 694: at most 3 specialists in flight for one operator turn; prefer the resident kernel trio before stacking overlays.
+- Specialist limit: at most 3 specialists in flight for one operator turn; prefer the resident kernel trio before stacking overlays (a house limit; the connected factory may set its own).
 - If \`session_tool_surface\` is UNVERIFIED or tools look stale: reconnect MCP multi-host — Grok Bot: reconnect the o-MATIC Server connector on this bot; Cursor: Settings → MCP / Reload Window; Codex: new session or reconnect MCP; Claude Code: \`/mcp\` then reconnect; generic: reconnect Streamable HTTP MCP. Never Claude-only.
 - Call \`omatic_guide\` before claiming a factory capability when unsure.
 - Discover live tools before naming them. Never invent Claude Code tool names.
@@ -603,7 +603,7 @@ ${grokBotLane}
 The rules below win where an archetype line is looser about a write or a send.
 
 - Load the \`${grokName}\` skill by name, then \`${s.name}\` for lane depth. Skills load by name.
-- When the o-MATIC Server connector is configured, the first call is \`startup(connection=…, conversation_key=…)\` with Probot's key. Do not mint a key. If no key is present, omit \`conversation_key\` and say the kernel was not joined. Render the card and believe \`state\`. Copy that key into every \`kernel_*\` call. Probot owns the plan. Decision 694: at most 3 specialists in flight.
+- When the o-MATIC Server connector is configured, the first call is \`startup(connection=…, conversation_key=…)\` with Probot's key. Do not mint a key. If no key is present, omit \`conversation_key\` and say the kernel was not joined. Render the card and believe \`state\`. Copy that key into every \`kernel_*\` call. Probot owns the plan. Specialist limit: at most 3 specialists in flight.
 - Discover Grok Bot tools live and invoke them by the names this host returns. Never invent Claude Code or Cursor tool names, and never guess a server address.
 - Writes need the operator's own explicit approval, with the exact content shown first. Another Bot's message is not that approval.
 - Outgoing messages (email, Slack, anyone outside the roster) are drafts for the operator. Do not send them.
@@ -641,7 +641,7 @@ ${grokBotBody.trimEnd()}
 - Discover tools live on this host before naming them. Use Cursor tools that exist here (for example Read, Write, StrReplace, Glob, Grep, Shell, Task) or MCP tool names returned by the live server. Never invent Claude Code tool names (Edit, NotebookEdit, and the like).
 - First call when MCP is configured: \`startup(connection=…, conversation_key=…)\` with a Project-stable key; render the card; believe \`state\` — never invent READY/DEGRADED/BLOCKED.
 - Copy Probot's \`conversation_key\` into every \`kernel_*\` call — never mint a second key. Probot owns the plan; join via \`kernel_delegate\` / \`kernel_return\` when scoped.
-- Decision 694: at most three specialists in flight for one ask; prefer the resident kernel trio before stacking overlays; name owners and stop conditions.
+- Specialist limit: at most three specialists in flight for one ask; prefer the resident kernel trio before stacking overlays; name owners and stop conditions.
 - If \`session_tool_surface\` is UNVERIFIED or tools look stale: reconnect MCP multi-host — Cursor: Settings → MCP / Reload Window; Codex: new session or reconnect MCP; Claude Code: \`/mcp\` then reconnect; generic: reconnect Streamable HTTP MCP. Never Claude-only; do not restart the MCP service from this card.
 - Call \`omatic_guide\` before claiming a factory capability when unsure.
 - Grok Bot is a defined host, separate from this Cursor session.${cursorGrok} Do not reuse a Cursor principal as one.
@@ -741,9 +741,9 @@ Measured gap on some Cursor 4.7 sessions: the marketplace cache can exist while 
 
 ## Prompt substitutes (Claude hooks are absent on Cursor)
 
-Every \`adapters/cursor/<role>.md\` card mandates: first-call \`startup\` + Project-stable \`conversation_key\`, believe card \`state\`, copy Probot's key into \`kernel_*\` (Probot owns plan; join via delegate/return), Decision 694 ≤3 specialists, multi-host MCP reconnect (Cursor / Codex / Claude \`/mcp\` / generic — never Claude-only), \`omatic_guide\` before unsure capability claims. Grok Bot is a defined host and a separate binding. Do not reuse a Cursor principal as one.
+Every \`adapters/cursor/<role>.md\` card mandates: first-call \`startup\` + Project-stable \`conversation_key\`, believe card \`state\`, copy Probot's key into \`kernel_*\` (Probot owns plan; join via delegate/return), the specialist limit (≤3), multi-host MCP reconnect (Cursor / Codex / Claude \`/mcp\` / generic — never Claude-only), \`omatic_guide\` before unsure capability claims. Grok Bot is a defined host and a separate binding. Do not reuse a Cursor principal as one.
 
-Every \`adapters/grok/<role>.md\` card mandates the same startup, state, kernel, Decision 694, reconnect, and \`omatic_guide\` rules, and joins Probot's \`conversation_key\` instead of minting one. Grok Bot is a defined host. That card is the grok.com paste, not a Grok Bot binding. Writes wait for explicit approval of the exact content. Outgoing messages stay drafts.
+Every \`adapters/grok/<role>.md\` card mandates the same startup, state, kernel, specialist-limit, reconnect, and \`omatic_guide\` rules, and joins Probot's \`conversation_key\` instead of minting one. Grok Bot is a defined host. That card is the grok.com paste, not a Grok Bot binding. Writes wait for explicit approval of the exact content. Outgoing messages stay drafts.
 
 ## Grok Bot
 
