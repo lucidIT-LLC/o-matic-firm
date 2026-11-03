@@ -4,18 +4,35 @@
     "name": "LucidIT, LLC"
   },
   "metadata": {
-    "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane), Jake (AI coach), and Jerry (accountant). Grok Bot host skills ship for Jake and Jerry. Ships no MCP server.",
-    "version": "1.6.3"
+    "description": "o-MATIC Firm — expertise you retain. Smith (critical analyst, and the evidence-first evaluation lane), Jake (AI coach), and Jerry (accountant). Grok Bot host skills ship for Jake and Jerry. Microsoft 365 Copilot app sources ship for Smith, Jake, and Jerry and are not uploaded from this pack. Ships no MCP server.",
+    "version": "1.7.0"
   },
   "plugins": [
     {
       "name": "firm",
       "source": "./firm",
-      "description": "Retained expertise for an o-MATIC factory — Smith, Jake, and Jerry. Grok Bot host skills ship for Jake and Jerry. Ships no MCP server.",
-      "version": "1.6.3",
+      "description": "Retained expertise for an o-MATIC factory — Smith, Jake, and Jerry. Grok Bot host skills ship for Jake and Jerry. Microsoft 365 Copilot app sources ship for Smith, Jake, and Jerry and are not uploaded from this pack. Ships no MCP server.",
+      "version": "1.7.0",
+      "keywords": ["m365-copilot", "github-copilot", "grok-bot"],
       "displayName": "o-MATIC Firm",
       "logo": "firm/assets/logo.png",
-      "category": "productivity"
+      "category": "productivity",
+      "metadata": {
+        "hosts": {
+          "m365": {
+            "kind": "declarative-agent-app",
+            "status": "source-only",
+            "schema": "declarative-agent/v1.9",
+            "appManifest": "teams/v1.30",
+            "packages": [
+              {"role": "smith", "version": "1.7.0", "path": "firm/adapters/m365/smith/appPackage"},
+              {"role": "jake", "version": "1.7.0", "path": "firm/adapters/m365/jake/appPackage"},
+              {"role": "jerry", "version": "1.7.0", "path": "firm/adapters/m365/jerry/appPackage"}
+            ]
+          },
+          "github-copilot": {"path": "firm/adapters/copilot/.github/agents"}
+        }
+      }
     }
   ]
 }

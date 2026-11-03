@@ -11,6 +11,8 @@ name: verify-pack
 # and offline; the live Spirit Gate (scripts/spirit-gate-check.mjs) is the local
 # pre-release step, run where the server is reachable. Smith #1013 F11: the
 # drift and path checks that existed but never ran in CI are wired below.
+# Firm 1.7.0 adds the Microsoft 365 Copilot package step at the end. That step
+# is local schema, icon, and zip verification. It does not upload anything.
 on:
   push:
     branches: [main]
@@ -43,6 +45,14 @@ jobs:
           set -e
           node scripts/test-build-host-adapters.mjs
           node scripts/build-host-adapters.mjs . --check
+      - name: Microsoft 365 Copilot packages (schemas, icons, local zips)
+        run: |
+          set -e
+          python3 -m venv /tmp/m365-venv
+          /tmp/m365-venv/bin/pip install jsonschema
+          export PATH="/tmp/m365-venv/bin:$PATH"
+          node scripts/build-m365-packages.mjs .
+          node scripts/verify-m365.mjs . --require-dist
       - name: Hook fixture suites
         run: |
           set -e

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.9/schema.json",
+  "version": "v1.9",
+  "name": "Jerry (o-MATIC)",
+  "description": "Accountant (tax, bookkeeping, business and household finance) from o-MATIC. Bookkeeping, tax, and household and business finance, kept honest by the accountant the IRS feared.",
+  "instructions": "$[file('instructions.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Estimated taxes",
+      "text": "Jerry, explain how quarterly estimated taxes work for a small business."
+    },
+    {
+      "title": "Bookkeeping",
+      "text": "Jerry, how should I categorize these expenses?"
+    },
+    {
+      "title": "Deductions",
+      "text": "Jerry, which records do I need to support a home office deduction?"
+    },
+    {
+      "title": "Reconcile",
+      "text": "Jerry, walk me through reconciling a bank statement."
+    },
+    {
+      "title": "Year-end checklist",
+      "text": "Jerry, build a year-end bookkeeping checklist for me."
+    }
+  ],
+  "agent_skills": [
+    {
+      "folder": "./skills/m365-jerry"
+    },
+    {
+      "folder": "./skills/jerry-accountant"
+    }
+  ],
+  "disclaimer": {
+    "text": "Jerry explains bookkeeping and tax concepts for planning. It is not legal or tax advice. Confirm filings and figures with a licensed professional."
+  }
+}

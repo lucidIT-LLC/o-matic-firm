@@ -110,5 +110,62 @@ for (const [label, opts, want] of cases) {
   rmSync(root, { recursive: true, force: true });
 }
 
+// Microsoft 365 packages are v1.9, titled, deduped, and refuse a write tool.
+{
+  const root = pack();
+  const r = run(root);
+  const daPath = join(root, "demo/adapters/m365/tess/appPackage/declarativeAgent.json");
+  const da = existsSync(daPath) ? JSON.parse(readFileSync(daPath, "utf8")) : {};
+  const starters = da.conversation_starters || [];
+  check("m365 package is declarative agent v1.9", r.status === 0 && da.version === "v1.9" && !existsSync(join(root, "demo/adapters/m365/tess/declarativeAgent.json")), r.stdout.slice(0, 300));
+  check("m365 starters have titles", starters.length >= 1 && starters.every((s) => s.title && s.text), JSON.stringify(starters));
+  const texts = starters.map((s) => s.text.toLowerCase());
+  check("m365 starters are deduped", new Set(texts).size === texts.length);
+  rmSync(root, { recursive: true, force: true });
+}
+{
+  const root = pack();
+  mkdirSync(join(root, "demo/skills/m365-tess"), { recursive: true });
+  writeFileSync(join(root, "demo/skills/m365-tess/SKILL.md"), "---\nname: m365-tess\ndescription: Host skill for Tess on Microsoft 365 Copilot.\n---\n\nHost boundary.\n");
+  mkdirSync(join(root, "demo/adapters/m365"), { recursive: true });
+  writeFileSync(join(root, "demo/adapters/m365/roles.json"), JSON.stringify({
+    agents: {
+      tess: {
+        wave: 1,
+        short_description: "Tests things.",
+        tools: ["search"],
+        starters: [
+          { title: "One", text: "Tess, one." },
+          { title: "Two", text: "Tess, two." },
+          { title: "One again", text: "Tess, one." },
+          { title: "Three", text: "Tess, three." },
+        ],
+      },
+    },
+  }));
+  const r = run(root);
+  const pluginPath = join(root, "demo/adapters/m365/tess/appPackage/ai-plugin.json");
+  const plugin = existsSync(pluginPath) ? JSON.parse(readFileSync(pluginPath, "utf8")) : {};
+  const da = JSON.parse(readFileSync(join(root, "demo/adapters/m365/tess/appPackage/declarativeAgent.json"), "utf8"));
+  check("m365 dedupes starter text and pins only the allowed tool", r.status === 0 && da.conversation_starters.length === 3 && plugin.runtimes?.[0]?.spec?.url === "${{OMATIC_MCP_URL}}" && plugin.runtimes?.[0]?.run_for_functions?.join() === "search", r.stdout.slice(0, 400));
+  rmSync(root, { recursive: true, force: true });
+}
+{
+  const root = pack();
+  mkdirSync(join(root, "demo/adapters/m365"), { recursive: true });
+  writeFileSync(join(root, "demo/adapters/m365/roles.json"), JSON.stringify({
+    agents: { tess: { wave: 1, short_description: "Tests.", tools: ["factory_query", "startup"], starters: [
+      { title: "One", text: "Tess, one." },
+      { title: "Two", text: "Tess, two." },
+      { title: "Three", text: "Tess, three." },
+    ] } },
+  }));
+  const r = run(root);
+  check("m365 build fails when a tool is factory_query or startup", r.status === 1 && /not a pinned read-only Copilot tool/.test(r.stdout), r.stdout.slice(0, 400));
+  const pluginPath = join(root, "demo/adapters/m365/tess/appPackage/ai-plugin.json");
+  check("m365 does not emit a plugin for a denied tool", !existsSync(pluginPath));
+  rmSync(root, { recursive: true, force: true });
+}
+
 console.log(failed ? `\n${failed} check(s) failed` : "\nall checks passed");
 process.exit(failed ? 1 : 0);

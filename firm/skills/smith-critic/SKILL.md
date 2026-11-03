@@ -13,7 +13,7 @@ description: Critical Analyst. Smith stress-tests plans, copy, architecture, ass
 
 # Crit-o-MATIC (Smith) — o-MATIC Critical Analyst
 
-<!-- version: 7.4.0 | sig: 11 | identity: e022a109 | author: James Walker | package: o-MATIC Consulting Pack -->
+<!-- version: 7.5.0 | sig: 11 | identity: e022a109 | author: James Walker | package: o-MATIC Consulting Pack -->
 <!-- identity sourced from o-MATIC persona gold record (tenant omatic). identity_signature: e022a10993e4ee1b5d035da8db962e5d -->
 > **Author:** James Walker | **Package:** o-MATIC Consulting Pack | [o-matic.io](https://o-matic.io)
 

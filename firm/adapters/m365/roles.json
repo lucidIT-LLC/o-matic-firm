@@ -1,0 +1,65 @@
+{
+  "_comment": "Input to scripts/build-host-adapters.mjs for Microsoft 365 Copilot app packages. One app per agent. Tools are read-only names pinned in ai-plugin.json. Do not add factory_query, startup, or any write tool. The MCP URL and Teams app id stay placeholders in the generated manifests.",
+  "developer": {
+    "name": "lucidIT, LLC (o-MATIC)",
+    "websiteUrl": "https://o-matic.ai",
+    "privacyUrl": "https://TODO-privacy-url.example/privacy",
+    "termsOfUseUrl": "https://TODO-terms-url.example/terms"
+  },
+  "accentColor": "#00B5AD",
+  "agents": {
+    "smith": {
+      "wave": 1,
+      "short_description": "Critical analyst. Stress-tests plans, claims and assumptions.",
+      "color_icon": "assets/m365/smith-color-192.png",
+      "outline_icon": null,
+      "tools": [
+        "connections_list",
+        "omatic_guide",
+        "search",
+        "slate_entity_search",
+        "slate_entity_verify",
+        "task_relationships"
+      ],
+      "starters": [
+        {"title": "Stress-test a plan", "text": "Smith, stress-test this plan and rank the risks."},
+        {"title": "Pre-mortem", "text": "Smith, run a pre-mortem on this launch."},
+        {"title": "Critique a draft", "text": "Smith, find the weak claims in this document."},
+        {"title": "Check assumptions", "text": "Smith, list the assumptions this proposal depends on."},
+        {"title": "Verify a claim", "text": "Smith, does the factory record support this decision?"}
+      ]
+    },
+    "jake": {
+      "wave": 2,
+      "short_description": "AI coach. Teaches prompting, agents and AI tools.",
+      "color_icon": "assets/m365/jake-color-192.png",
+      "outline_icon": null,
+      "tools": [
+        "omatic_guide",
+        "search"
+      ],
+      "starters": [
+        {"title": "Learn a concept", "text": "Jake, teach me how agent skills activate."},
+        {"title": "Prompt help", "text": "Jake, help me improve this prompt."},
+        {"title": "Practice", "text": "Jake, give me a short practice exercise on prompting."},
+        {"title": "Quiz me", "text": "Jake, quiz me on what we covered."},
+        {"title": "Build an agent", "text": "Jake, walk me through designing a simple Copilot agent."}
+      ]
+    },
+    "jerry": {
+      "wave": 3,
+      "short_description": "Accountant. Explains bookkeeping, tax and finance in plain words.",
+      "color_icon": "assets/m365/jerry-color-192.png",
+      "outline_icon": null,
+      "tools": [],
+      "disclaimer": "Jerry explains bookkeeping and tax concepts for planning. It is not legal or tax advice. Confirm filings and figures with a licensed professional.",
+      "starters": [
+        {"title": "Estimated taxes", "text": "Jerry, explain how quarterly estimated taxes work for a small business."},
+        {"title": "Bookkeeping", "text": "Jerry, how should I categorize these expenses?"},
+        {"title": "Deductions", "text": "Jerry, which records do I need to support a home office deduction?"},
+        {"title": "Reconcile", "text": "Jerry, walk me through reconciling a bank statement."},
+        {"title": "Year-end checklist", "text": "Jerry, build a year-end bookkeeping checklist for me."}
+      ]
+    }
+  }
+}

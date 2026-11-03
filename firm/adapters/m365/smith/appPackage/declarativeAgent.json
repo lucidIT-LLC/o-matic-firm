@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.9/schema.json",
+  "version": "v1.9",
+  "name": "Smith (o-MATIC)",
+  "description": "Critical Analyst / Factory Auditor from o-MATIC. I'm going to tell you what's wrong. You're welcome.",
+  "instructions": "$[file('instructions.txt')]",
+  "conversation_starters": [
+    {
+      "title": "Stress-test a plan",
+      "text": "Smith, stress-test this plan and rank the risks."
+    },
+    {
+      "title": "Pre-mortem",
+      "text": "Smith, run a pre-mortem on this launch."
+    },
+    {
+      "title": "Critique a draft",
+      "text": "Smith, find the weak claims in this document."
+    },
+    {
+      "title": "Check assumptions",
+      "text": "Smith, list the assumptions this proposal depends on."
+    },
+    {
+      "title": "Verify a claim",
+      "text": "Smith, does the factory record support this decision?"
+    }
+  ],
+  "agent_skills": [
+    {
+      "folder": "./skills/m365-smith"
+    },
+    {
+      "folder": "./skills/smith-critic"
+    }
+  ],
+  "actions": [
+    {
+      "id": "omaticServer",
+      "file": "ai-plugin.json"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "tools": [
+    {
+      "name": "connections_list",
+      "description": "List the factory connections granted to the signed-in user. Read-only.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    {
+      "name": "omatic_guide",
+      "description": "Read the o-MATIC operating guide for a named topic. Read-only.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    {
+      "name": "search",
+      "description": "Search factory records the signed-in user is allowed to read. Read-only.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    {
+      "name": "slate_entity_search",
+      "description": "Search Slate entities the signed-in user can read. Read-only.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    {
+      "name": "slate_entity_verify",
+      "description": "Read a Slate entity and report whether the record supports a claim. Read-only.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    {
+      "name": "task_relationships",
+      "description": "Read relationships between factory tasks. Read-only.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  ]
+}

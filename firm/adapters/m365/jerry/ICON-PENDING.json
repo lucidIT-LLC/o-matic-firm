@@ -1,0 +1,9 @@
+{
+  "role": "jerry",
+  "pending": [
+    "outline"
+  ],
+  "color": "assets/m365/jerry-color-192.png",
+  "outline": null,
+  "note": "Missing icons are not invented. Real art comes in a follow-up. verify-m365 warns and does not fail while pending is non-empty. Do not upload this package until pending is empty."
+}
