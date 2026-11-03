@@ -5,6 +5,10 @@
 Microsoft 365 Copilot app sources for Smith, Jake, and Jerry. One app per
 agent. Nothing in this release is uploaded, published, or pointed at a tenant.
 
+- **Jake pet:** includes the optional Jake v2 sprite, metadata, and export/install
+  guide already merged on main. Installing Firm does not select a pet or change
+  Jake's behavior. This combined release includes the pet update proposed in 1.6.4.
+
 - **Packages:** `firm/adapters/m365/<role>/appPackage/` replaces the v1.6
   declarative-agent file. App manifest v1.30, declarative agent v1.9,
   instructions condensed from the role, titled starters, and a pinned

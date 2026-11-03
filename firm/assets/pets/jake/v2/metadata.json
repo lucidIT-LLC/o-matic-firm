@@ -1,0 +1,24 @@
+{
+  "name": "Jake",
+  "description": "Jake, the curious o-MATIC AI surfer-professor robot coach.",
+  "spriteVersionNumber": 2,
+  "spritesheet": "jake-pet-v2.png",
+  "width": 1536,
+  "height": 2288,
+  "cellWidth": 192,
+  "cellHeight": 208,
+  "framesPerRow": [
+    6,
+    8,
+    8,
+    4,
+    5,
+    8,
+    6,
+    6,
+    6,
+    8,
+    8
+  ],
+  "mimeType": "image/png"
+}
