@@ -14,7 +14,7 @@
       "name": "firm",
       "displayName": "o-MATIC Firm",
       "source": "./firm",
-      "version": "1.6.3",
+      "version": "1.6.4",
       "description": "Retained expertise for an o-MATIC factory, as skills only. Smith stress-tests plans, architecture and factory configuration adversarially, and owns the evidence-first evaluation lane (decision #416). Jake coaches. Jerry keeps the books and reports only. Grok Bot host skills ship for Jake and Jerry. Ships no MCP server.",
       "author": {
         "name": "James Walker",
