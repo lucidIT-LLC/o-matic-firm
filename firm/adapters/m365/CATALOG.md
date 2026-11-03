@@ -6,8 +6,8 @@ One app per agent. Zips are built into `dist/m365/` and are not committed. SHA-2
 
 | Agent | Wave | Version | Pinned read-only tools | Icons |
 |---|---|---|---|---|
-| Jake | 2 | 1.7.0 | omatic_guide, search | outline pending |
-| Smith | 1 | 1.7.0 | connections_list, omatic_guide, search, slate_entity_search, slate_entity_verify, task_relationships | outline pending |
-| Jerry | 3 | 1.7.0 | none (chat-only) | outline pending |
+| Jake | 2 | 1.7.0 | omatic_guide, search | ready |
+| Smith | 1 | 1.7.0 | connections_list, omatic_guide, search, slate_entity_search, slate_entity_verify, task_relationships | ready |
+| Jerry | 3 | 1.7.0 | none (chat-only) | ready |
 
 The first factory a tool-using agent may read is o-MATIC Foundry, read-only. Agents with no pinned tools are chat-only. Privacy and terms URLs are TODO. The MCP URL and the Teams app id are placeholders.

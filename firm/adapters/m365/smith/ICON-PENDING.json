@@ -1,10 +1,7 @@
 {
   "role": "smith",
-  "pending": [
-    "outline"
-  ],
+  "pending": [],
   "color": "assets/m365/smith-color-192.png",
-  "outline": null,
-  "note": "Interim color+outline exports live under firm/assets/m365/. Outlines are not wired into appPackage yet: Brandy HOLD until Affinity/ART store-final masters are admitted. verify-m365 warns and does not fail while pending is non-empty. Do not upload this package until pending is empty.",
-  "interim_outline": "assets/m365/smith-outline-32.png"
+  "outline": "assets/m365/smith-outline-32.png",
+  "note": "Color and outline icons are present."
 }

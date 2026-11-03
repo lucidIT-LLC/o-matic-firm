@@ -472,7 +472,9 @@ Privacy and terms URLs contain TODO and are not publishable. The MCP server URL 
 3. Another tenant: that tenant's admin uploads a zip built with that tenant's server URL and auth config id.
 4. Public Agent Store: only after the privacy and terms pages exist, publisher verification is done, and someone decides to go public. Persona lines from the gold record stay as written. Store review may flag them.
 
-Color icons are resized from avatar art already in this repo. Outline icons (32 by 32, white on transparent) are not invented. A package with a pending icon is not uploadable.
+${m365Rows.some((r) => r.pending.length)
+    ? "Color icons are resized from avatar art already in this repo. Outline icons (32 by 32, white on transparent) are not invented. A package with a pending icon is not uploadable."
+    : "Color (192×192) and outline (32×32, white on transparent) icons are admitted under `assets/m365/` and shipped in each appPackage. Privacy/terms TODOs and SSO placeholders still block public upload."}
 `);
 }
 

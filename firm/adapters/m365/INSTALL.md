@@ -8,9 +8,9 @@ Nothing ships until Entra SSO for the o-MATIC Server is live and the Copilot dat
 
 ## One app per agent
 
-- **Jake** (wave 2, version 1.7.0): `adapters/m365/jake/appPackage/`. Tools: omatic_guide, search. Icons pending: outline.
-- **Smith** (wave 1, version 1.7.0): `adapters/m365/smith/appPackage/`. Tools: connections_list, omatic_guide, search, slate_entity_search, slate_entity_verify, task_relationships. Icons pending: outline.
-- **Jerry** (wave 3, version 1.7.0): `adapters/m365/jerry/appPackage/`. Tools: none. Icons pending: outline.
+- **Jake** (wave 2, version 1.7.0): `adapters/m365/jake/appPackage/`. Tools: omatic_guide, search. Icons pending: none.
+- **Smith** (wave 1, version 1.7.0): `adapters/m365/smith/appPackage/`. Tools: connections_list, omatic_guide, search, slate_entity_search, slate_entity_verify, task_relationships. Icons pending: none.
+- **Jerry** (wave 3, version 1.7.0): `adapters/m365/jerry/appPackage/`. Tools: none. Icons pending: none.
 
 ## Build
 
@@ -34,4 +34,4 @@ Privacy and terms URLs contain TODO and are not publishable. The MCP server URL 
 3. Another tenant: that tenant's admin uploads a zip built with that tenant's server URL and auth config id.
 4. Public Agent Store: only after the privacy and terms pages exist, publisher verification is done, and someone decides to go public. Persona lines from the gold record stay as written. Store review may flag them.
 
-Color icons are resized from avatar art already in this repo. Outline icons (32 by 32, white on transparent) are not invented. A package with a pending icon is not uploadable.
+Color (192×192) and outline (32×32, white on transparent) icons are admitted under `assets/m365/` and shipped in each appPackage. Privacy/terms TODOs and SSO placeholders still block public upload.

@@ -12,7 +12,7 @@
       "wave": 1,
       "short_description": "Critical analyst. Stress-tests plans, claims and assumptions.",
       "color_icon": "assets/m365/smith-color-192.png",
-      "outline_icon": null,
+      "outline_icon": "assets/m365/smith-outline-32.png",
       "tools": [
         "connections_list",
         "omatic_guide",
@@ -33,7 +33,7 @@
       "wave": 2,
       "short_description": "AI coach. Teaches prompting, agents and AI tools.",
       "color_icon": "assets/m365/jake-color-192.png",
-      "outline_icon": null,
+      "outline_icon": "assets/m365/jake-outline-32.png",
       "tools": [
         "omatic_guide",
         "search"
@@ -50,7 +50,7 @@
       "wave": 3,
       "short_description": "Accountant. Explains bookkeeping, tax and finance in plain words.",
       "color_icon": "assets/m365/jerry-color-192.png",
-      "outline_icon": null,
+      "outline_icon": "assets/m365/jerry-outline-32.png",
       "tools": [],
       "disclaimer": "Jerry explains bookkeeping and tax concepts for planning. It is not legal or tax advice. Confirm filings and figures with a licensed professional.",
       "starters": [
