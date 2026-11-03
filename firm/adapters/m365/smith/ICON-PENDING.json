@@ -5,5 +5,6 @@
   ],
   "color": "assets/m365/smith-color-192.png",
   "outline": null,
-  "note": "Missing icons are not invented. Real art comes in a follow-up. verify-m365 warns and does not fail while pending is non-empty. Do not upload this package until pending is empty."
+  "note": "Interim color+outline exports live under firm/assets/m365/. Outlines are not wired into appPackage yet: Brandy HOLD until Affinity/ART store-final masters are admitted (ART/o-matic unreachable from this host). verify-m365 warns and does not fail while pending is non-empty. Do not upload this package until pending is empty.",
+  "interim_outline": "assets/m365/smith-outline-32.png"
 }

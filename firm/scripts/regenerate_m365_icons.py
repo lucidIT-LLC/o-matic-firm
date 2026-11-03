@@ -30,8 +30,9 @@ SMITH_SVG = ROOT / "skills" / "smith-critic" / "assets" / "smith.svg"
 JAKE_SRC = ROOT / "skills" / "jake-coach" / "assets" / "jake-coach.png"
 JERRY_SRC = ROOT / "skills" / "jerry-accountant" / "assets" / "jerry-accountant.png"
 
-TEAL_LIGHT = np.array([10, 161, 170], dtype=np.float32)
-TEAL_DARK = np.array([6, 79, 85], dtype=np.float32)
+# Brand lock: primary teal #00B5AD (Brandy / o-MATIC).
+TEAL_LIGHT = np.array([0, 181, 173], dtype=np.float32)
+TEAL_DARK = np.array([0, 110, 105], dtype=np.float32)
 
 
 def ensure_dirs() -> None:
@@ -303,8 +304,12 @@ def build_smith() -> tuple[Image.Image, Image.Image]:
 # ---------------------------------------------------------------------------
 
 def _is_hoodie_blue(rgb: np.ndarray) -> np.ndarray:
+    """Match source blue hoodie OR prior off-lock teal so we can pin #00B5AD."""
     r, g, b = rgb[..., 0].astype(np.int16), rgb[..., 1].astype(np.int16), rgb[..., 2].astype(np.int16)
-    return (b > r + 15) & (b > g - 5) & (b > 90) & (b < 180) & (r < 120) & (g < 150) & (g > 60)
+    source_blue = (b > r + 15) & (b > g - 5) & (b > 90) & (b < 180) & (r < 120) & (g < 150) & (g > 60)
+    # Petrol / prior interim teal hoodies (low red, mid green≈blue).
+    off_teal = (r < 50) & (g > 70) & (g < 160) & (b > 70) & (b < 160) & (np.abs(g - b) < 35)
+    return source_blue | off_teal
 
 
 def _recolor_hoodie_to_teal(arr: np.ndarray) -> np.ndarray:
@@ -313,12 +318,10 @@ def _recolor_hoodie_to_teal(arr: np.ndarray) -> np.ndarray:
     mask = _is_hoodie_blue(rgb)
     if not mask.any():
         return out
-    b = rgb[:, :, 2].astype(np.float32)
-    t = np.clip((b - 90.0) / 90.0, 0.0, 1.0)
-    teal = TEAL_DARK[None, None, :] * (1 - t)[..., None] + TEAL_LIGHT[None, None, :] * t[..., None]
+    # Pin mean toward brand #00B5AD; keep mild luminance shading only.
     lum = (0.3 * rgb[:, :, 0] + 0.5 * rgb[:, :, 1] + 0.2 * rgb[:, :, 2]).astype(np.float32) / 255.0
-    shade = 0.55 + 0.7 * lum
-    teal = np.clip(teal * shade[..., None], 0, 255)
+    shade = 0.92 + 0.16 * lum  # pin near #00B5AD
+    teal = np.clip(TEAL_LIGHT[None, None, :] * shade[..., None], 0, 255)
     out[mask, :3] = teal[mask].astype(np.uint8)
     return out
 
@@ -332,7 +335,11 @@ def _find_cream_band_y(arr: np.ndarray) -> int:
 
 
 def _build_jake_full_figure(src: Image.Image) -> Image.Image:
-    """Full-figure Jake: strip banner, teal hoodie, continuous board+legs in one circle."""
+    """Jake color tile: source circle above name pill, hoodie pinned to #00B5AD.
+
+    No synthesized legs — Affinity/ART must supply a true full-figure master later.
+    Interim keeps one source composition: character + board inside the beach circle.
+    """
     src = src.convert("RGBA")
     arr = np.array(src)
     band_y = _find_cream_band_y(arr)
@@ -341,108 +348,46 @@ def _build_jake_full_figure(src: Image.Image) -> Image.Image:
     cx, cy, R = 256, 256, 240
     cream_bg = (247, 242, 233, 255)
 
-    # 1) Take source above banner; punch outer cream so only circle content remains
-    upper = np.array(src.crop((0, 0, 512, band_y)).convert("RGBA"))
-    cream = _is_cream(upper[:, :, :3])
-    near_cream = (upper[:, :, 0] > 210) & (upper[:, :, 1] > 200) & (upper[:, :, 2] > 185) & (
-        np.abs(upper[:, :, 0].astype(int) - upper[:, :, 1].astype(int)) < 30
-    )
-    upper[cream | near_cream, 3] = 0
-    opaque = upper[:, :, 3] > 40
-    ys, xs = np.where(opaque)
-    upper = upper[ys.min() : ys.max() + 1, xs.min() : xs.max() + 1]
+    # Take source above the cream name-pill band; keep beach circle intact.
+    upper = src.crop((0, 0, 512, band_y)).convert("RGBA")
+    # Soft-fill the flat cut with sand so the circle reads continuous at the hem.
+    ua = np.array(upper)
+    # Last ~18 rows: where the banner cut a flat edge — extend sand/ocean from neighbors.
+    cut = max(0, ua.shape[0] - 18)
+    for y in range(cut, ua.shape[0]):
+        row = ua[y]
+        # Prefer cloning from a few rows above when pixel is cream/near-white.
+        creamish = _is_cream(row[:, :3]) | (
+            (row[:, 0] > 220) & (row[:, 1] > 210) & (row[:, 2] > 190)
+        )
+        src_row = ua[max(0, cut - 8)]
+        row[creamish] = src_row[creamish]
+        ua[y] = row
+    upper = Image.fromarray(ua, "RGBA")
 
-    # 2) Extend canvas BELOW the flat banner edge with board tip + legs BEFORE fitting
-    uh, uw = upper.shape[:2]
-    ext_h = uh + 160
-    extended = np.zeros((ext_h, uw, 4), dtype=np.uint8)
-    extended[:uh] = upper
-    # Seed sky fill under the flat edge (will be covered by figure paint)
-    extended[uh:, :, :3] = (245, 230, 180)
-    extended[uh:, :, 3] = 255
-
-    rgb = extended[:uh, :, :3]
-    orange = (
-        (rgb[:, :, 0] > 170)
-        & (rgb[:, :, 1] > 70)
-        & (rgb[:, :, 1] < 210)
-        & (rgb[:, :, 2] < 110)
-        & (rgb[:, :, 0] > rgb[:, :, 2] + 60)
-    )
-    board_cols = np.where(orange.any(axis=0))[0]
-    body_cols = np.where((extended[:uh, :, 3] > 200) & ~orange)[0]
-    body_cx_u = int(body_cols.mean()) if len(body_cols) else uw // 2 + 30
-    board_color = (235, 155, 35)
-    if len(board_cols):
-        bx0, bx1 = int(board_cols.min()), int(board_cols.max())
-        sample = rgb[:, bx0 : bx1 + 1][orange[:, bx0 : bx1 + 1]]
-        if len(sample):
-            board_color = tuple(int(x) for x in sample.mean(axis=0))
-        mid = (bx0 + bx1) / 2.0
-        half0 = (bx1 - bx0) / 2.0
-        tip_y = uh + 150
-        for y in range(uh - 6, tip_y):
-            t = (y - uh) / max(1, tip_y - uh)
-            half = half0 * max(0.2, 1.0 - 0.7 * t * t)
-            x0, x1 = int(mid - half), int(mid + half)
-            for x in range(max(0, x0), min(uw, x1 + 1)):
-                extended[y, x] = (*board_color, 255)
-
-    # Legs / shorts / feet painted on extended buffer
-    layer = Image.fromarray(extended, "RGBA")
-    ld = ImageDraw.Draw(layer)
-    teal_hood = (8, 127, 136, 255)
-    shorts = (210, 125, 40, 255)
-    metal_c = (130, 135, 140, 255)
-    outline = (40, 30, 20, 255)
-    foot = (8, 127, 136, 255)
-    hem0, hem1 = uh - 20, uh + 22
-    ld.rounded_rectangle([body_cx_u - 48, hem0, body_cx_u + 42, hem1], radius=10, fill=teal_hood, outline=outline, width=3)
-    ld.rounded_rectangle([body_cx_u - 42, hem1 - 6, body_cx_u + 36, hem1 + 32], radius=8, fill=shorts, outline=outline, width=3)
-    leg_top, leg_bot = hem1 + 28, hem1 + 95
-    ld.rounded_rectangle([body_cx_u - 34, leg_top, body_cx_u - 14, leg_bot], radius=5, fill=metal_c, outline=outline, width=2)
-    ld.rounded_rectangle([body_cx_u + 8, leg_top, body_cx_u + 28, leg_bot], radius=5, fill=metal_c, outline=outline, width=2)
-    foot_bot = min(ext_h - 1, leg_bot + 28)
-    ld.ellipse([body_cx_u - 52, leg_bot - 8, body_cx_u - 6, foot_bot], fill=foot, outline=outline, width=2)
-    ld.ellipse([body_cx_u - 2, leg_bot - 8, body_cx_u + 44, foot_bot], fill=foot, outline=outline, width=2)
-    # Sand under feet
-    sand_y = min(ext_h - 2, max(leg_bot + 10, foot_bot - 4))
-    if sand_y < ext_h - 1:
-        ld.rectangle([0, sand_y, uw - 1, ext_h - 1], fill=(214, 186, 140, 255))
-    extended = np.array(layer)
-
-    # 3) Fit extended full figure into destination circle (scale to fill diameter)
-    fig = Image.fromarray(extended, "RGBA")
-    # Punch leftover cream corners if any
-    fa0 = np.array(fig)
-    fa0[_is_cream(fa0[:, :, :3]) & (fa0[:, :, 3] > 0), 3] = 0
-    # But keep painted sand/sky — only punch true outer cream
-    fig = Image.fromarray(fa0, "RGBA")
-    # Use opaque bbox
-    op = fa0[:, :, 3] > 40
-    ys, xs = np.where(op)
-    fig = fig.crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
-
-    diam = int(2 * R * 0.96)
+    # Fit the upper crop into the destination circle.
+    fa0 = np.array(upper)
+    # Punch only outer-frame cream (outside the beach circle) so the circle stays.
+    yy, xx = np.mgrid[0 : fa0.shape[0], 0 : fa0.shape[1]]
+    # Source circle roughly centered; use alpha of non-cream to find content bbox.
+    cream = _is_cream(fa0[:, :, :3])
+    # Keep beach sky/sand inside — only punch cream that is also outside a loose circle.
+    # Simpler: do not punch; paste onto cream canvas and recolor hoodie.
+    fig = upper
     fw, fh = fig.size
+    diam = int(2 * R * 0.98)
     scale = min(diam / fw, diam / fh)
     nw, nh = max(1, int(fw * scale)), max(1, int(fh * scale))
     fig_r = fig.resize((nw, nh), Image.Resampling.LANCZOS)
 
     canvas = Image.new("RGBA", (W, H), cream_bg)
-    # Beach circle underlay (only visible in tiny gaps)
-    beach = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    bd = ImageDraw.Draw(beach)
-    bd.ellipse([cx - R, cy - R, cx + R, cy + R], fill=(245, 230, 180, 255))
-    bd.rectangle([cx - R, cy + 150, cx + R, cy + R], fill=(214, 186, 140, 255))
-    cmask = Image.new("L", (W, H), 0)
-    ImageDraw.Draw(cmask).ellipse([cx - R, cy - R, cx + R, cy + R], fill=255)
-    canvas.paste(beach, mask=cmask)
     canvas.paste(fig_r, ((W - nw) // 2, (H - nh) // 2), fig_r)
 
     fa = np.array(canvas)
+    # Clip anything outside the destination circle back to cream.
     yy, xx = np.mgrid[0:H, 0:W]
-    fa[(xx - cx) ** 2 + (yy - cy) ** 2 > (R - 1) ** 2] = cream_bg
+    outside = (xx - cx) ** 2 + (yy - cy) ** 2 > (R - 1) ** 2
+    fa[outside] = cream_bg
     fa = _recolor_hoodie_to_teal(fa)
     return Image.fromarray(fa, "RGBA")
 
@@ -547,56 +492,14 @@ def build_jake() -> tuple[Image.Image, Image.Image]:
 # Jerry
 # ---------------------------------------------------------------------------
 
-def _blank_jerry_props(arr: np.ndarray) -> None:
-    """Replace document + calculator with blank props (no letterforms/digits)."""
-    # 1) Erase original paper + calc by painting bg cream over their bboxes,
-    #    sparing teal/gold robot pixels.
-    bg = (241, 236, 230)
-    rgb = arr[:, :, :3].astype(np.int16)
-    teal = (rgb[:, :, 0] < 100) & (rgb[:, :, 1] > 60) & (rgb[:, :, 2] > 60) & (rgb[:, :, 1] > rgb[:, :, 0] + 15)
-    gold = (rgb[:, :, 0] > 150) & (rgb[:, :, 1] > 110) & (rgb[:, :, 2] < 120)
-    # Eyes only — NOT white paper (paper also reads cream-bright)
-    cream_eye = (
-        (rgb[:, :, 0] > 200)
-        & (rgb[:, :, 1] > 190)
-        & (rgb[:, :, 2] > 150)
-        & (rgb[:, :, 0] - rgb[:, :, 2] < 50)
-        & (rgb[:, :, 2] < 210)  # paper is ~230+ blue channel; eyes warmer/dimmer
-    )
-    black_line = rgb.mean(axis=2) < 40
-    robot = teal | gold | cream_eye | black_line
-
-    # Hard-erase document + calculator only (avoid face). Paper/glyphs must not survive.
-    for y0, y1, x0, x1 in (
-        (145, 340, 55, 210),  # TAX document
-        (155, 390, 310, 490),  # calculator + receipt
-    ):
-        zone = arr[y0:y1, x0:x1].copy()
-        keep = robot[y0:y1, x0:x1]
-        zone[~keep, 0] = bg[0]
-        zone[~keep, 1] = bg[1]
-        zone[~keep, 2] = bg[2]
-        arr[y0:y1, x0:x1] = zone
-
-    # Draw clean blank props (no glyphs) — keep off the face
-    im = Image.fromarray(arr, "RGBA")
-    d = ImageDraw.Draw(im)
-    d.rounded_rectangle([100, 215, 180, 330], radius=4, fill=(252, 248, 240, 255), outline=(40, 35, 30, 255), width=3)
-    d.rounded_rectangle([345, 205, 455, 345], radius=12, fill=(90, 95, 100, 255), outline=(30, 28, 26, 255), width=3)
-    d.rounded_rectangle([360, 220, 440, 252], radius=4, fill=(50, 58, 62, 255))
-    for row in range(4):
-        for col in range(3):
-            x0 = 362 + col * 28
-            y0 = 262 + row * 18
-            d.rounded_rectangle([x0, y0, x0 + 22, y0 + 12], radius=3, fill=(160, 165, 170, 255))
-    d.rounded_rectangle([400, 160, 438, 210], radius=3, fill=(250, 248, 242, 255), outline=(40, 35, 30, 255), width=2)
-    arr[:, :, :] = np.array(im)
-
-
 def build_jerry_color(src: Image.Image) -> Image.Image:
-    arr = np.array(src.convert("RGBA"))
-    _blank_jerry_props(arr)
-    return Image.fromarray(arr, "RGBA")
+    """Head crop only — drops TAX paper, calculator, books, letterforms.
+
+    Full-prop store-final stays an Affinity/ART job; interim must have zero glyphs.
+    """
+    src = src.convert("RGBA")
+    # Tight head window on 512 source: antenna + visor + ears + face (no props).
+    return src.crop((145, 10, 385, 185))
 
 
 def _jerry_outline_drawn(src: Image.Image) -> Image.Image:
