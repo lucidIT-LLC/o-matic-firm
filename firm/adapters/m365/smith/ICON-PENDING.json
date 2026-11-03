@@ -1,9 +1,7 @@
 {
   "role": "smith",
-  "pending": [
-    "outline"
-  ],
+  "pending": [],
   "color": "assets/m365/smith-color-192.png",
-  "outline": null,
-  "note": "Missing icons are not invented. Real art comes in a follow-up. verify-m365 warns and does not fail while pending is non-empty. Do not upload this package until pending is empty."
+  "outline": "assets/m365/smith-outline-32.png",
+  "note": "Color and outline icons are present."
 }

@@ -372,15 +372,25 @@ function emitM365(a, s) {
   if (cfg.outline_icon && existsSync(join(root, pluginDir, cfg.outline_icon))) {
     putBin(`${base}/outline.png`, readFileSync(join(root, pluginDir, cfg.outline_icon)));
   } else pending.push("outline");
-  put(`${pluginDir}/adapters/m365/${a.id}/ICON-PENDING.json`, JSON.stringify({
+  // Interim outline exports may already live under assets/m365/ while roles.json
+  // still leaves outline_icon null (Brandy HOLD until Affinity/ART store-final).
+  const interimOutlineRel = `assets/m365/${a.id}-outline-32.png`;
+  const interimOutlinePath = join(root, pluginDir, interimOutlineRel);
+  const hasInterimOutline = !cfg.outline_icon && existsSync(interimOutlinePath);
+  const pendingNote = pending.length === 0
+    ? "Color and outline icons are present."
+    : hasInterimOutline
+      ? `Interim color+outline exports live under firm/assets/m365/. Outlines are not wired into appPackage yet: Brandy HOLD until Affinity/ART store-final masters are admitted. verify-m365 warns and does not fail while pending is non-empty. Do not upload this package until pending is empty.`
+      : "Missing icons are not invented. Real art comes in a follow-up. verify-m365 warns and does not fail while pending is non-empty. Do not upload this package until pending is empty.";
+  const iconPending = {
     role: a.id,
     pending,
     color: cfg.color_icon || null,
     outline: cfg.outline_icon || null,
-    note: pending.length
-      ? "Missing icons are not invented. Real art comes in a follow-up. verify-m365 warns and does not fail while pending is non-empty. Do not upload this package until pending is empty."
-      : "Color and outline icons are present.",
-  }, null, 2));
+    note: pendingNote,
+  };
+  if (hasInterimOutline) iconPending.interim_outline = interimOutlineRel;
+  put(`${pluginDir}/adapters/m365/${a.id}/ICON-PENDING.json`, JSON.stringify(iconPending, null, 2));
 
   const env = (which) => `# ${which}: Microsoft 365 Copilot environment for ${a.display_name}.
 # No secrets. No tenant id. No private host.
@@ -462,7 +472,9 @@ Privacy and terms URLs contain TODO and are not publishable. The MCP server URL 
 3. Another tenant: that tenant's admin uploads a zip built with that tenant's server URL and auth config id.
 4. Public Agent Store: only after the privacy and terms pages exist, publisher verification is done, and someone decides to go public. Persona lines from the gold record stay as written. Store review may flag them.
 
-Color icons are resized from avatar art already in this repo. Outline icons (32 by 32, white on transparent) are not invented. A package with a pending icon is not uploadable.
+${m365Rows.some((r) => r.pending.length)
+    ? "Color icons are resized from avatar art already in this repo. Outline icons (32 by 32, white on transparent) are not invented. A package with a pending icon is not uploadable."
+    : "Color (192×192) and outline (32×32, white on transparent) icons are admitted under `assets/m365/` and shipped in each appPackage. Privacy/terms TODOs and SSO placeholders still block public upload."}
 `);
 }
 
