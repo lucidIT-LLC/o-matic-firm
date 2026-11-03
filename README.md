@@ -36,6 +36,10 @@ and he reports rather than posting to the books. None of them is constitutive:
 a factory starts without them. That is the difference between the Firm and the
 Agency.
 
+## Optional Jake pet
+
+[Install the Jake pet](<codex://pets/install?name=Jake&imageUrl=https%3A%2F%2Fraw.githubusercontent.com%2FlucidIT-LLC%2Fo-matic-firm%2Fmain%2Ffirm%2Fassets%2Fpets%2Fjake%2Fv2%2Fjake-pet-v2.png&description=Jake%2C%20the%20curious%20o-MATIC%20AI%20surfer-professor%20robot%20coach.&spriteVersionNumber=2>) opens the separate Codex pet install flow. The original v2 PNG and instructions are in [`firm/assets/pets/jake/v2/README.md`](firm/assets/pets/jake/v2/README.md). Installing the marketplace plugin does not select or activate a pet.
+
 ## The other doors
 
 You don't go to a hardware store for a marketing manager. Each o-MATIC
