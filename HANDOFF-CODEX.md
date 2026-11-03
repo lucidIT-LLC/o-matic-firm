@@ -32,3 +32,10 @@
 ## Branch safety
 
 PR #14 changes the same host-adapter generator used by PR #10 and is based on an earlier PR #10 commit. Its three commits and PR #10's current three post-base commits are separate lines. Do not rebase, merge, or copy generated outputs between these branches without coordinating the stack and rerunning the checks. Do not commit the local-only pet files listed above.
+
+
+## Post-write branch check
+
+- The first handoff commit `74f77df99b30c2d50508dbf748932980d401e1fb` adds only this file to the prior PR #10 head `b57918d9a9287a9f95492e99a40b04c206afbf14`. No workflow run for that text-only commit had appeared at the follow-up read.
+- After that branch advance, PR #14 still points at `1dc227ca44edb67d6c5de848f924d9544e05ea21` and GitHub now reports `mergeable: false`; its prior run #49 passed at that head. Do not resolve this by rebasing or merging without coordinating the two lines.
+- The final note-only update will become the current PR #10 branch tip; the exact final commit SHA is in the handoff response.
